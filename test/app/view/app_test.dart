@@ -6,8 +6,8 @@
 // https://opensource.org/licenses/MIT.
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:portfolio_two/app/app.dart';
-import 'package:portfolio_two/counter/counter.dart';
+import 'package:portfolio_two/presentation/app/app.dart';
+import 'package:portfolio_two/presentation/features/counter/counter.dart';
 
 void main() {
   group('App', () {

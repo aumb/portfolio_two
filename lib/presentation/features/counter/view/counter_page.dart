@@ -7,8 +7,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfolio_two/counter/counter.dart';
-import 'package:portfolio_two/l10n/l10n.dart';
+import 'package:portfolio_two/presentation/features/counter/cubit/counter_cubit.dart';
+import 'package:portfolio_two/presentation/features/l10n/l10n.dart';
 
 class CounterPage extends StatelessWidget {
   const CounterPage({super.key});
