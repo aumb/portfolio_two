@@ -13,6 +13,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:portfolio_two/firebase_options.dart';
+import 'package:portfolio_two/resources/dependecy_manager/dependecy_manager.dart';
 
 class AppBlocObserver extends BlocObserver {
   @override
@@ -33,6 +34,7 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
     log(details.exceptionAsString(), stackTrace: details.stack);
   };
 
+  await DependecyManager.inject();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
