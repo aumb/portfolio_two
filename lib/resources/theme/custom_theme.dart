@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_two/resources/colors/colors.dart';
-import 'package:portfolio_two/resources/text_theme/text_theme.dart';
 
 class CustomTheme {
   static final dark = ThemeData(
@@ -33,7 +32,6 @@ class CustomTheme {
     scaffoldBackgroundColor: CustomColors.colorsDark.background,
     backgroundColor: CustomColors.colorsDark.background,
     hintColor: Colors.white38,
-    textTheme: CustomTextTheme.darkTextTheme,
     iconTheme: IconThemeData(
       size: 16,
       color: CustomColors.colorsDark.accent,
