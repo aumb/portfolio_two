@@ -20,11 +20,14 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        padding: EdgeInsets.zero,
-        children: const [
-          IntroductionPage(),
-        ],
+      body: Scrollbar(
+        child: ListView(
+          physics: const BouncingScrollPhysics(),
+          padding: EdgeInsets.zero,
+          children: const [
+            IntroductionPage(),
+          ],
+        ),
       ),
     );
   }
