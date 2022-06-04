@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "319176506676",
+    "project_id": "portfolio-4fc5a",
+    "storage_bucket": "portfolio-4fc5a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:319176506676:android:2f935d5d5885258e5cf961",
+        "android_client_info": {
+          "package_name": "com.example.verygoodcore.portfolio_two"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "319176506676-g70ddpl0mu4f4drtfr296turopgb71g9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDD0-3AQHvFoDgIxcyF1uw0TM9bH9wiDqg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "319176506676-g70ddpl0mu4f4drtfr296turopgb71g9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "319176506676-sp4ki9g9ifa1633s49fb598v645ems96.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mathiew-portfolio.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
