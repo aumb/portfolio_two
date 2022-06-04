@@ -4,91 +4,91 @@ import 'package:portfolio_two/resources/text_theme/text_theme.dart';
 
 class CustomTheme {
   static final dark = ThemeData(
-    floatingActionButtonTheme: const FloatingActionButtonThemeData(
-      foregroundColor: CustomColors.backgroundColor,
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      foregroundColor: CustomColors.colorsDark.background,
     ),
-    appBarTheme: const AppBarTheme(
-      color: CustomColors.backgroundColor,
+    appBarTheme: AppBarTheme(
+      color: CustomColors.colorsDark.background,
       iconTheme: IconThemeData(
-        color: CustomColors.white87,
+        color: CustomColors.colorsDark.labelPrimary,
       ),
     ),
-    textSelectionTheme: const TextSelectionThemeData(
-      selectionColor: CustomColors.accentColor,
-      selectionHandleColor: CustomColors.accentColor,
+    textSelectionTheme: TextSelectionThemeData(
+      selectionColor: CustomColors.colorsDark.accent,
+      selectionHandleColor: CustomColors.colorsDark.accent,
     ),
     primarySwatch: _swatch,
     colorScheme: ColorScheme.fromSwatch(
       primarySwatch: _swatch,
-      accentColor: CustomColors.accentColor,
-      errorColor: CustomColors.errorColor,
+      accentColor: CustomColors.colorsDark.accent,
+      errorColor: CustomColors.colorsDark.error,
       brightness: Brightness.dark,
-      cardColor: CustomColors.cardColor,
-      backgroundColor: CustomColors.backgroundColor,
+      cardColor: CustomColors.colorsDark.card,
+      backgroundColor: CustomColors.colorsDark.background,
     ),
-    errorColor: CustomColors.errorColor,
-    secondaryHeaderColor: CustomColors.secondaryAccent,
-    cardColor: CustomColors.cardColor,
-    canvasColor: CustomColors.accentColor,
-    scaffoldBackgroundColor: CustomColors.backgroundColor,
-    backgroundColor: CustomColors.backgroundColor,
+    errorColor: CustomColors.colorsDark.error,
+    secondaryHeaderColor: CustomColors.colorsDark.secondaryAccent,
+    cardColor: CustomColors.colorsDark.card,
+    canvasColor: CustomColors.colorsDark.accent,
+    scaffoldBackgroundColor: CustomColors.colorsDark.background,
+    backgroundColor: CustomColors.colorsDark.background,
     hintColor: Colors.white38,
     textTheme: CustomTextTheme.darkTextTheme,
-    iconTheme: const IconThemeData(
+    iconTheme: IconThemeData(
       size: 16,
-      color: CustomColors.accentColor,
+      color: CustomColors.colorsDark.accent,
     ),
-    inputDecorationTheme: const InputDecorationTheme(
-      labelStyle: TextStyle(
+    inputDecorationTheme: InputDecorationTheme(
+      labelStyle: const TextStyle(
         color: Colors.white38,
       ),
       disabledBorder: OutlineInputBorder(
         borderSide: BorderSide(
-          color: CustomColors.accentColor,
+          color: CustomColors.colorsDark.accent,
         ),
       ),
       focusedBorder: OutlineInputBorder(
         borderSide: BorderSide(
-          color: CustomColors.backgroundColor,
+          color: CustomColors.colorsDark.background,
         ),
       ),
     ),
-    chipTheme: const ChipThemeData(
-      backgroundColor: CustomColors.chipBackgroundColor,
-      labelStyle: TextStyle(
+    chipTheme: ChipThemeData(
+      backgroundColor: CustomColors.colorsDark.chipBackground,
+      labelStyle: const TextStyle(
         color: Colors.white38,
       ),
       secondaryLabelStyle: TextStyle(
-        color: CustomColors.accentColor,
+        color: CustomColors.colorsDark.accent,
       ),
-      secondarySelectedColor: CustomColors.accentColor,
+      secondarySelectedColor: CustomColors.colorsDark.accent,
       padding: EdgeInsets.zero,
-      shape: StadiumBorder(),
-      selectedColor: CustomColors.accentColor,
-      labelPadding: EdgeInsets.symmetric(horizontal: 8),
+      shape: const StadiumBorder(),
+      selectedColor: CustomColors.colorsDark.accent,
+      labelPadding: const EdgeInsets.symmetric(horizontal: 8),
       brightness: Brightness.dark,
       disabledColor: Colors.grey,
     ),
-    tooltipTheme: const TooltipThemeData(
+    tooltipTheme: TooltipThemeData(
       decoration: BoxDecoration(
-        color: CustomColors.accentColor,
+        color: CustomColors.colorsDark.accent,
       ),
     ),
   );
 
-  static const _swatch = MaterialColor(
+  static final _swatch = MaterialColor(
     0xFF242729,
     <int, Color>{
-      50: CustomColors.cardColor,
-      100: CustomColors.cardColor,
-      200: CustomColors.cardColor,
-      300: CustomColors.cardColor,
-      400: CustomColors.cardColor,
-      500: CustomColors.backgroundColor,
-      600: CustomColors.backgroundColor,
-      700: CustomColors.backgroundColor,
-      800: CustomColors.backgroundColor,
-      900: CustomColors.backgroundColor,
+      50: CustomColors.colorsDark.card,
+      100: CustomColors.colorsDark.card,
+      200: CustomColors.colorsDark.card,
+      300: CustomColors.colorsDark.card,
+      400: CustomColors.colorsDark.card,
+      500: CustomColors.colorsDark.background,
+      600: CustomColors.colorsDark.background,
+      700: CustomColors.colorsDark.background,
+      800: CustomColors.colorsDark.background,
+      900: CustomColors.colorsDark.background,
     },
   );
 }
