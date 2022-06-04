@@ -8,7 +8,9 @@
 import 'dart:async';
 import 'dart:developer';
 import 'package:bloc/bloc.dart';
+import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:portfolio_two/firebase_options.dart';
 
@@ -38,7 +40,16 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   await runZonedGuarded(
     () async {
       await BlocOverrides.runZoned(
-        () async => runApp(await builder()),
+        () async {
+          final _builder = await builder();
+          return runApp(
+            DevicePreview(
+              // ignore: avoid_redundant_argument_values
+              enabled: !kReleaseMode,
+              builder: (_) => _builder,
+            ),
+          );
+        },
         blocObserver: AppBlocObserver(),
       );
     },
