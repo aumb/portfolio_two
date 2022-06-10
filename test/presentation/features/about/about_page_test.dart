@@ -14,23 +14,29 @@ import '../../../helpers/helpers.dart';
 
 void main() {
   group('AboutPage', () {
-    testWidgets('renders AboutView', (tester) async {
+    Future<void> _setup(WidgetTester tester) async {
       await tester.pumpApp();
       await tester.pumpAndSettle();
+      await tester.scrollUntilVisible(
+        find.byType(AboutPage),
+        500,
+      );
+    }
+
+    testWidgets('renders AboutView', (tester) async {
+      await _setup(tester);
 
       expect(find.byType(AboutView), findsOneWidget);
     });
 
     testWidgets('renders LayoutWidget', (tester) async {
-      await tester.pumpApp();
-      await tester.pumpAndSettle();
+      await _setup(tester);
 
-      expect(find.byType(LayoutWidget), findsOneWidget);
+      expect(find.byType(LayoutWidget), findsNWidgets(2));
     });
 
     testWidgets('renders Title Widget', (tester) async {
-      await tester.pumpApp();
-      await tester.pumpAndSettle();
+      await _setup(tester);
 
       expect(
         find.byKey(const Key('aboutPageTitle')),
@@ -39,8 +45,7 @@ void main() {
     });
 
     testWidgets('renders Subtitle widget', (tester) async {
-      await tester.pumpApp();
-      await tester.pumpAndSettle();
+      await _setup(tester);
 
       expect(
         find.byKey(const Key('aboutPageSubtitle')),

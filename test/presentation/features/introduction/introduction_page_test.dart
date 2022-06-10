@@ -14,24 +14,26 @@ import 'package:portfolio_two/presentation/widgets/profile_image.dart';
 import '../../../helpers/helpers.dart';
 
 void main() {
+  Future<void> _setup(WidgetTester tester) async {
+    await tester.pumpApp();
+    await tester.pumpAndSettle();
+  }
+
   group('IntroductionPage', () {
     testWidgets('renders IntroductionView', (tester) async {
-      await tester.pumpApp();
-      await tester.pumpAndSettle();
+      await _setup(tester);
 
       expect(find.byType(IntroductionView), findsOneWidget);
     });
 
     testWidgets('renders LayoutWidget', (tester) async {
-      await tester.pumpApp();
-      await tester.pumpAndSettle();
+      await _setup(tester);
 
       expect(find.byType(LayoutWidget), findsOneWidget);
     });
 
     testWidgets('renders Title Widget', (tester) async {
-      await tester.pumpApp();
-      await tester.pumpAndSettle();
+      await _setup(tester);
 
       expect(
         find.byKey(const Key('introductionPageTitle')),
@@ -40,8 +42,7 @@ void main() {
     });
 
     testWidgets('renders Subtitle widget', (tester) async {
-      await tester.pumpApp();
-      await tester.pumpAndSettle();
+      await _setup(tester);
 
       expect(
         find.byKey(const Key('introductionPageSubtitle')),
@@ -50,15 +51,13 @@ void main() {
     });
 
     testWidgets('renders ProfileImage', (tester) async {
-      await tester.pumpApp();
-      await tester.pumpAndSettle();
+      await _setup(tester);
 
       expect(find.byType(ProfileImage), findsOneWidget);
     });
 
     testWidgets('renders Illustration Widget', (tester) async {
-      await tester.pumpApp();
-      await tester.pumpAndSettle();
+      await _setup(tester);
 
       expect(
         find.byKey(const Key('introductionIllustrationWidget')),
