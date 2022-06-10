@@ -9,5 +9,9 @@ import 'package:portfolio_two/bootstrap.dart';
 import 'package:portfolio_two/presentation/app/app.dart';
 
 void main() {
-  bootstrap(() => const App());
+  bootstrap(
+    (router) => App(
+      router: router,
+    ),
+  );
 }

@@ -14,6 +14,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:portfolio_two/firebase_options.dart';
 import 'package:portfolio_two/resources/dependecy_manager/dependecy_manager.dart';
+import 'package:portfolio_two/resources/router/router.dart';
 
 class AppBlocObserver extends BlocObserver {
   @override
@@ -29,7 +30,7 @@ class AppBlocObserver extends BlocObserver {
   }
 }
 
-Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
+Future<void> bootstrap(FutureOr<Widget> Function(AppRouter) builder) async {
   FlutterError.onError = (details) {
     log(details.exceptionAsString(), stackTrace: details.stack);
   };
@@ -43,7 +44,10 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
     () async {
       await BlocOverrides.runZoned(
         () async {
-          final _builder = await builder();
+          final _router = AppRouter();
+
+          final _builder = await builder(_router);
+
           return runApp(
             DevicePreview(
               // ignore: avoid_redundant_argument_values

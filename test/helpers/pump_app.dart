@@ -9,17 +9,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:portfolio_two/resources/l10n/l10n.dart';
+import 'package:portfolio_two/resources/router/router.dart';
 
 extension PumpApp on WidgetTester {
-  Future<void> pumpApp(Widget widget) {
+  Future<void> pumpApp({
+    AppRouter? router,
+  }) {
+    final _router = router ?? AppRouter();
+
     return pumpWidget(
-      MaterialApp(
+      MaterialApp.router(
         localizationsDelegates: const [
           AppLocalizations.delegate,
           GlobalMaterialLocalizations.delegate,
         ],
         supportedLocales: AppLocalizations.supportedLocales,
-        home: widget,
+        routerDelegate: _router.delegate(),
+        routeInformationParser: _router.defaultRouteParser(),
       ),
     );
   }

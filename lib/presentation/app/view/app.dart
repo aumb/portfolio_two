@@ -13,7 +13,12 @@ import 'package:portfolio_two/resources/router/router.dart';
 import 'package:portfolio_two/resources/theme/theme.dart';
 
 class App extends StatelessWidget {
-  const App({super.key});
+  const App({
+    super.key,
+    required this.router,
+  });
+
+  final AppRouter router;
 
   @override
   Widget build(BuildContext context) {
