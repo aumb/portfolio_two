@@ -28,7 +28,7 @@ class CustomColors {
     chipBackground: Color(0xFF424242),
     secondaryAccent: Color(0xFFFFB74D),
     error: Color(0xFFEF5350),
-    labelPrimary: Color.fromRGBO(255, 255, 255, 0.87),
-    labelSecondary: Color.fromRGBO(255, 255, 255, 0.6),
+    labelPrimary: Color.fromRGBO(255, 255, 255, .87),
+    labelSecondary: Color.fromRGBO(0, 0, 0, 1),
   );
 }

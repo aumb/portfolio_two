@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_two/presentation/features/about/about.dart';
 import 'package:portfolio_two/presentation/features/introduction/introduction.dart';
 
 class HomePage extends StatelessWidget {
@@ -26,6 +27,7 @@ class HomeView extends StatelessWidget {
           padding: EdgeInsets.zero,
           children: const [
             IntroductionPage(),
+            AboutPage(),
           ],
         ),
       ),

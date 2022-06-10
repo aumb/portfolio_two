@@ -34,13 +34,13 @@ class IntroductionView extends StatelessWidget {
             const SizedBox(height: 56),
             AppText.headline4(
               'text',
-              key: const ValueKey('pageTitle'),
+              key: const ValueKey('introductionPageTitle'),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 24),
             AppText.headline5(
               'text2',
-              key: const ValueKey('pageSubtitle'),
+              key: const ValueKey('introductionPageSubtitle'),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 56),
@@ -48,7 +48,7 @@ class IntroductionView extends StatelessWidget {
             const SizedBox(height: 32),
             Expanded(
               child: Container(
-                key: const ValueKey('illustrationWidget'),
+                key: const ValueKey('introductionIllustrationWidget'),
                 alignment: Alignment.bottomCenter,
                 child: Image.asset(
                   CustomImages.illustraion,
