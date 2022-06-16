@@ -20,6 +20,37 @@ class AppText extends StatelessWidget {
     this.fontSize,
   });
 
+  factory AppText.body1(
+    String data, {
+    Key? key,
+    Color? color,
+    TextAlign? textAlign,
+    int? maxLines,
+    bool autoSize = false,
+    TextOverflow? overflow,
+    double? letterSpacing,
+    String? fontFamily,
+    double? lineHeight,
+    FontWeight? weight,
+    double? fontSize,
+  }) {
+    return AppText._(
+      CustomTextStyles.body,
+      key: key,
+      data: data,
+      color: color,
+      textAlign: textAlign,
+      maxLines: maxLines,
+      overflow: overflow,
+      autoSize: autoSize,
+      letterSpacing: letterSpacing,
+      fontFamily: fontFamily,
+      lineHeight: lineHeight,
+      fontWeight: weight,
+      fontSize: fontSize,
+    );
+  }
+
   factory AppText.body2(
     String data, {
     Key? key,
@@ -95,6 +126,35 @@ class AppText extends StatelessWidget {
   }) {
     return AppText._(
       CustomTextStyles.headline5,
+      key: key,
+      data: data,
+      color: color,
+      textAlign: textAlign,
+      maxLines: maxLines,
+      overflow: overflow,
+      autoSize: autoSize,
+      letterSpacing: letterSpacing,
+      fontFamily: fontFamily,
+      lineHeight: lineHeight,
+      fontWeight: weight,
+    );
+  }
+
+  factory AppText.headline6(
+    String data, {
+    Key? key,
+    Color? color,
+    TextAlign? textAlign,
+    int? maxLines,
+    bool autoSize = false,
+    TextOverflow? overflow,
+    double? letterSpacing,
+    String? fontFamily,
+    double? lineHeight,
+    FontWeight? weight,
+  }) {
+    return AppText._(
+      CustomTextStyles.headline,
       key: key,
       data: data,
       color: color,

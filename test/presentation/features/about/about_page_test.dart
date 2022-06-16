@@ -8,8 +8,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:portfolio_two/presentation/features/about/about.dart';
-import 'package:portfolio_two/presentation/widgets/layout_widget.dart';
-
 import '../../../helpers/helpers.dart';
 
 void main() {
@@ -32,7 +30,12 @@ void main() {
     testWidgets('renders LayoutWidget', (tester) async {
       await _setup(tester);
 
-      expect(find.byType(LayoutWidget), findsNWidgets(2));
+      expect(
+        find.byKey(
+          const Key('skillsPageLayoutWidget'),
+        ),
+        findsOneWidget,
+      );
     });
 
     testWidgets('renders Title Widget', (tester) async {

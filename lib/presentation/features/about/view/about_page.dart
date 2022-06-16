@@ -21,6 +21,7 @@ class AboutView extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
 
     return LayoutWidget(
+      key: const ValueKey('aboutPageLayoutWidget'),
       padding:
           EdgeInsets.symmetric(horizontal: width * .2, vertical: height * .2),
       backgroundColor: context.colors.accent,

@@ -24,4 +24,9 @@ class CustomTextStyles {
     fontSize: 16,
     fontWeight: FontWeight.normal,
   );
+
+  static const headline6 = TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.w800,
+  );
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_two/presentation/features/about/about.dart';
 import 'package:portfolio_two/presentation/features/introduction/introduction.dart';
+import 'package:portfolio_two/presentation/features/skills/skills.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({
@@ -21,15 +22,14 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Scrollbar(
-        child: ListView(
-          physics: const BouncingScrollPhysics(),
-          padding: EdgeInsets.zero,
-          children: const [
-            IntroductionPage(),
-            AboutPage(),
-          ],
-        ),
+      body: ListView(
+        physics: const BouncingScrollPhysics(),
+        padding: EdgeInsets.zero,
+        children: const [
+          IntroductionPage(),
+          AboutPage(),
+          SkillsPage(),
+        ],
       ),
     );
   }
