@@ -7,24 +7,25 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:portfolio_two/presentation/features/about/about.dart';
+import 'package:portfolio_two/presentation/features/contact/contact.dart';
+import 'package:portfolio_two/presentation/widgets/animated_circular_icon_button.dart';
 import '../../../helpers/helpers.dart';
 
 void main() {
-  group('AboutPage', () {
+  group('ContactPage', () {
     Future<void> _setup(WidgetTester tester) async {
       await tester.pumpApp();
       await tester.pumpAndSettle();
       await tester.scrollUntilVisible(
-        find.byType(AboutPage),
+        find.byType(ContactPage),
         500,
       );
     }
 
-    testWidgets('renders AboutView', (tester) async {
+    testWidgets('renders ContactView', (tester) async {
       await _setup(tester);
 
-      expect(find.byType(AboutView), findsOneWidget);
+      expect(find.byType(ContactView), findsOneWidget);
     });
 
     testWidgets('renders LayoutWidget', (tester) async {
@@ -32,7 +33,7 @@ void main() {
 
       expect(
         find.byKey(
-          const Key('aboutPageLayoutWidget'),
+          const Key('contactPageLayoutWidget'),
         ),
         findsOneWidget,
       );
@@ -42,7 +43,7 @@ void main() {
       await _setup(tester);
 
       expect(
-        find.byKey(const Key('aboutPageTitle')),
+        find.byKey(const Key('contactPageTitle')),
         findsOneWidget,
       );
     });
@@ -51,8 +52,17 @@ void main() {
       await _setup(tester);
 
       expect(
-        find.byKey(const Key('aboutPageSubtitle')),
+        find.byKey(const Key('contactPageSubTitle')),
         findsOneWidget,
+      );
+    });
+
+    testWidgets('renders 5 AnimatedCircularIconButton widgets', (tester) async {
+      await _setup(tester);
+
+      expect(
+        find.byType(AnimatedCircularIconButton),
+        findsNWidgets(5),
       );
     });
   });

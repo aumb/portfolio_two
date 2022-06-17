@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_two/presentation/features/about/about.dart';
+import 'package:portfolio_two/presentation/features/contact/view/contact_page.dart';
 import 'package:portfolio_two/presentation/features/introduction/introduction.dart';
 import 'package:portfolio_two/presentation/features/skills/skills.dart';
 
@@ -29,6 +30,7 @@ class HomeView extends StatelessWidget {
           IntroductionPage(),
           AboutPage(),
           SkillsPage(),
+          ContactPage(),
         ],
       ),
     );
