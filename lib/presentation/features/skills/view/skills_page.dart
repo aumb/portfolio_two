@@ -25,7 +25,7 @@ class SkillsView extends StatelessWidget {
 
     return LayoutWidget(
       key: const ValueKey('skillsPageLayoutWidget'),
-      padding: EdgeInsets.symmetric(vertical: 16, horizontal: width * .1),
+      padding: EdgeInsets.symmetric(vertical: 24, horizontal: width * .1),
       child: Wrap(
         spacing: 16,
         runSpacing: 24,

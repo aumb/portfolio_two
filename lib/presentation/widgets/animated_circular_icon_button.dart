@@ -7,9 +7,13 @@ class AnimatedCircularIconButton extends StatefulWidget {
     super.key,
     required this.iconAsset,
     required this.onPressed,
+    this.baseColor,
+    this.hoverColor,
   });
 
   final String iconAsset;
+  final Color? baseColor;
+  final Color? hoverColor;
   final void Function() onPressed;
 
   @override
@@ -25,8 +29,12 @@ class _AnimatedCircularIconButtonState
   Widget build(BuildContext context) {
     return CircularIconButton(
       iconAsset: widget.iconAsset,
-      backgroundColor: _isHover ? context.colors.card : context.colors.accent,
-      iconColor: _isHover ? context.colors.accent : context.colors.card,
+      backgroundColor: _isHover
+          ? widget.hoverColor ?? context.colors.card
+          : widget.baseColor ?? context.colors.accent,
+      iconColor: _isHover
+          ? widget.baseColor ?? context.colors.accent
+          : widget.hoverColor ?? context.colors.card,
       onTap: widget.onPressed,
       onHover: (isHover) {
         if (_isHover != isHover) {

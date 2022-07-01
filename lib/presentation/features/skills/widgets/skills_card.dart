@@ -30,13 +30,13 @@ class SkillsCard extends StatelessWidget {
     return Card(
       child: Container(
         constraints: const BoxConstraints(
-          minWidth: 210,
+          minWidth: 300,
         ),
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SvgIcon.s24(
+            SvgIcon.s50(
               imageAsset,
               key: const ValueKey('skillsCardIcon'),
               color: Theme.of(context).colorScheme.secondary,

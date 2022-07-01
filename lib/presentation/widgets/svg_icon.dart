@@ -22,16 +22,16 @@ class SvgIcon {
         fit: fit ?? BoxFit.contain,
       );
 
-  static SvgPicture s24(
+  static SvgPicture s50(
     String assetName, {
     Key? key,
     Color? color,
   }) =>
-      SvgPicture.asset(
+      from(
         assetName,
         key: key,
-        width: 24,
-        height: 24,
+        width: 50,
+        height: 50,
         color: color,
       );
 }
