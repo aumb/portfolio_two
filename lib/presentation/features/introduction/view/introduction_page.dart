@@ -39,7 +39,8 @@ class IntroductionView extends StatelessWidget {
             ),
             const SizedBox(height: 24),
             AppText.headline5(
-              'I design and code beautifully simple things, and I love what I do.',
+              'I design and code beautifully simple things, and I love what '
+              'I do',
               key: const ValueKey('introductionPageSubtitle'),
               textAlign: TextAlign.center,
             ),

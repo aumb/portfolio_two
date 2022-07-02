@@ -8,4 +8,10 @@ class AppConstants {
 
     return differenceInYears.floor().toString();
   }
+
+  static const githubUrl = 'https://github.com/aumb';
+  static const linkedinUrl = 'https://www.linkedin.com/in/mathiewabbas';
+  static const facebookUrl = 'https://www.facebook.com/mathiew.abbas';
+  static const instagramUrl = 'https://www.instagram.com/mathiewabbas';
+  static const email = 'mathiew95@gmail.com';
 }

@@ -32,9 +32,10 @@ class WorkView extends StatelessWidget {
           startDate: DateTime(2021, 8),
           location: 'Remote • Prague, Czech Republic - Houston, Texas',
           description: '''
-## Senior Flutter Engineer - Present
-* Responsible for maintaining 2 core flutter packages NStack and the
-flutter template
+Senior Flutter Engineer - Present
+---------------
+* Responsible for maintaining 2 core flutter packages [NStack](https://github.com/nstack-io/flutter-sdk) and the
+[flutter template](https://github.com/monstar-lab-oss/flutter-template)
 * Responsible forleading a team of 7 flutter engineers in developing a
 cryptocurrency trading platform for a client.
 * Responsible for helping teammates, updates, general estimations, task
@@ -43,7 +44,8 @@ assignment (including QA), PR merges and CI/CD maintenance.
 client when needed.
 * Responsible for core code implementations.
 
-## Flutter Engineer - January 2022
+Flutter Engineer - January 2022
+---------------
 * Responsible for developing an entire flutter web admin panel for a client.
 * Responsible for communication with the PM, backend, and QA.
 ''',

@@ -21,7 +21,7 @@ class CustomDialog extends StatelessWidget {
           SingleChildScrollView(
             child: Container(
               constraints: const BoxConstraints(maxWidth: 1000),
-              padding: const EdgeInsets.all(32),
+              padding: const EdgeInsets.all(42),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,

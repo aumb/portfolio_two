@@ -4,6 +4,8 @@ import 'package:portfolio_two/presentation/widgets/app_text.dart';
 import 'package:portfolio_two/presentation/widgets/layout_widget.dart';
 import 'package:portfolio_two/resources/assets/custom_icons.dart';
 import 'package:portfolio_two/resources/colors/colors.dart';
+import 'package:portfolio_two/resources/constants.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContactPage extends StatelessWidget {
   const ContactPage({
@@ -57,27 +59,33 @@ class ContactView extends StatelessWidget {
               AnimatedCircularIconButton(
                 key: const ValueKey('githubIconButton'),
                 iconAsset: CustomIcons.github,
-                onPressed: () {},
+                onPressed: () => launchUrl(Uri.parse(AppConstants.githubUrl)),
               ),
               AnimatedCircularIconButton(
                 key: const ValueKey('linkedinIconButton'),
                 iconAsset: CustomIcons.linkedin,
-                onPressed: () {},
+                onPressed: () => launchUrl(Uri.parse(AppConstants.linkedinUrl)),
               ),
               AnimatedCircularIconButton(
                 key: const ValueKey('mailIconButton'),
                 iconAsset: CustomIcons.mail,
-                onPressed: () {},
+                onPressed: () => launchUrl(
+                  Uri(
+                    scheme: 'mailto',
+                    path: AppConstants.email,
+                  ),
+                ),
               ),
               AnimatedCircularIconButton(
                 key: const ValueKey('fbIconButton'),
                 iconAsset: CustomIcons.facebook,
-                onPressed: () {},
+                onPressed: () => launchUrl(Uri.parse(AppConstants.facebookUrl)),
               ),
               AnimatedCircularIconButton(
                 key: const ValueKey('instaIconButton'),
                 iconAsset: CustomIcons.instagram,
-                onPressed: () {},
+                onPressed: () =>
+                    launchUrl(Uri.parse(AppConstants.instagramUrl)),
               ),
             ],
           ),
