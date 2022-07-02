@@ -37,7 +37,7 @@ class AboutView extends StatelessWidget {
           ),
           const SizedBox(height: 24),
           AppText.headline5(
-            'Since beginning my journey as a software developer nearly '
+            'Since beginning my journey as a software developer around '
             '${AppConstants.yearsOfWork} years ago, I have done remote work '
             'for companies, consulted for startups, and collaborated with '
             'talented people to create digital products for both buisness '
