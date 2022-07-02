@@ -3,6 +3,7 @@ import 'package:portfolio_two/presentation/features/about/about.dart';
 import 'package:portfolio_two/presentation/features/contact/view/contact_page.dart';
 import 'package:portfolio_two/presentation/features/introduction/introduction.dart';
 import 'package:portfolio_two/presentation/features/skills/skills.dart';
+import 'package:portfolio_two/presentation/features/work/work.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({
@@ -30,6 +31,7 @@ class HomeView extends StatelessWidget {
           IntroductionPage(),
           AboutPage(),
           SkillsPage(),
+          WorkPage(),
           ContactPage(),
         ],
       ),
