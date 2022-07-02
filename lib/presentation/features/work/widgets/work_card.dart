@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_two/domain/models/work.dart';
 import 'package:portfolio_two/presentation/features/work/widgets/work_description_dialog.dart';
 import 'package:portfolio_two/resources/colors/colors.dart';
 
 class WorkCard extends StatefulWidget {
   const WorkCard({
     super.key,
+    required this.work,
   });
+
+  final Work work;
 
   @override
   State<WorkCard> createState() => _WorkCardState();
@@ -44,20 +48,21 @@ class _WorkCardState extends State<WorkCard> with TickerProviderStateMixin {
           customBorder: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(4),
           ),
-          onTap: () => WorkDescriptionDialog.show(context),
+          onTap: () => WorkDescriptionDialog.show(context, widget.work),
           child: Card(
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.all(
                   Radius.circular(4),
                 ),
-                color: context.colors.accent,
+                color: context.colors.background,
               ),
               width: 350,
-              padding: const EdgeInsets.all(8),
+              height: 200,
+              padding: const EdgeInsets.all(16),
               child: Image.network(
-                'https://cdn-anaoj.nitrocdn.com/xuTLKMQMxtlvDapARubFjGySLqObtsFU/assets/static/optimized/rev-30e3693/wp-content/uploads/2022/05/Layer-logo-white.png',
-                color: context.colors.card,
+                widget.work.imageUrl,
+                color: context.colors.labelPrimary,
               ),
             ),
           ),

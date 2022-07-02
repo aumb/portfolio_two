@@ -18,23 +18,20 @@ class CustomDialog extends StatelessWidget {
       ),
       child: Stack(
         children: [
-          IconButton(
-            onPressed: context.popRoute,
-            icon: const Icon(
-              Icons.close,
-              size: 25,
+          SingleChildScrollView(
+            child: Container(
+              constraints: const BoxConstraints(maxWidth: 1000),
+              padding: const EdgeInsets.all(32),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: content,
+              ),
             ),
           ),
-          Container(
-            constraints: BoxConstraints(
-              maxWidth: MediaQuery.of(context).size.width,
-            ),
-            padding: const EdgeInsets.all(32),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: content,
-            ),
+          IconButton(
+            onPressed: context.popRoute,
+            icon: const Icon(Icons.close, size: 24),
           ),
         ],
       ),

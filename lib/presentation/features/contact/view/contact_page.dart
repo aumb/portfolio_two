@@ -36,14 +36,14 @@ class ContactView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           AppText.headline4(
-            'personalInformation?.contactTitle',
+            'Living and learning one day at a time.',
             key: const ValueKey('contactPageTitle'),
             color: context.colors.labelSecondary.withOpacity(.54),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 44),
           AppText.headline5(
-            'personalInformation?.contactSubtitle',
+            'Get in touch',
             key: const ValueKey('contactPageSubTitle'),
             color: context.colors.labelSecondary.withOpacity(.7),
             textAlign: TextAlign.center,

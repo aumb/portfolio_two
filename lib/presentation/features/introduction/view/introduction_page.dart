@@ -33,13 +33,13 @@ class IntroductionView extends StatelessWidget {
           children: [
             const SizedBox(height: 56),
             AppText.headline4(
-              'text',
+              'Software developer',
               key: const ValueKey('introductionPageTitle'),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 24),
             AppText.headline5(
-              'text2',
+              'I design and code beautifully simple things, and I love what I do.',
               key: const ValueKey('introductionPageSubtitle'),
               textAlign: TextAlign.center,
             ),

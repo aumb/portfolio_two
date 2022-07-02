@@ -29,9 +29,8 @@ class SkillsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Container(
-        constraints: const BoxConstraints(
-          minWidth: 300,
-        ),
+        width: 300,
+        height: 320,
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
         child: Column(
           mainAxisSize: MainAxisSize.min,

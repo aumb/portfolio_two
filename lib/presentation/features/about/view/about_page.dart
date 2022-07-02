@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio_two/presentation/widgets/app_text.dart';
 import 'package:portfolio_two/presentation/widgets/layout_widget.dart';
 import 'package:portfolio_two/resources/colors/colors.dart';
+import 'package:portfolio_two/resources/constants.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
@@ -29,14 +30,19 @@ class AboutView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           AppText.headline4(
-            'text',
+            "Hi, I'm Mathiew. Nice to meet you.",
             key: const ValueKey('aboutPageTitle'),
             textAlign: TextAlign.center,
             color: context.colors.labelSecondary.withOpacity(.7),
           ),
           const SizedBox(height: 24),
           AppText.headline5(
-            'text2',
+            'Since beginning my journey as a software developer nearly '
+            '${AppConstants.yearsOfWork} years ago, I have done remote work '
+            'for companies, consulted for startups, and collaborated with '
+            'talented people to create digital products for both buisness '
+            'and consumer use. I am very out-going, curious by nature, and '
+            'a problem solver.',
             key: const ValueKey('aboutPageSubtitle'),
             textAlign: TextAlign.center,
             color: context.colors.labelSecondary.withOpacity(.7),
