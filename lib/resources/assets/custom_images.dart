@@ -12,4 +12,5 @@ class CustomImages {
   static const masonTemplates = '$_prefix/mason-templates.png';
   static const rickAndMorty = '$_prefix/rick-and-morty.jpg';
   static const topStories = '$_prefix/top-stories.jpg';
+  static const me = '$_prefix/me.jpeg';
 }

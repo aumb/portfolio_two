@@ -45,7 +45,7 @@ class IntroductionView extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 56),
-            const ProfileImage(url: ''),
+            const ProfileImage(url: CustomImages.me),
             const SizedBox(height: 32),
             Expanded(
               child: Container(

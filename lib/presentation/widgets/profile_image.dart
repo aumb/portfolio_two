@@ -11,6 +11,10 @@ class ProfileImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CircularImage.text('MA');
+    return url.isEmpty
+        ? CircularImage.text('MA')
+        : CircularImage.image(
+            AssetImage(url),
+          );
   }
 }
