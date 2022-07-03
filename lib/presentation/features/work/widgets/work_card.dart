@@ -60,7 +60,7 @@ class _WorkCardState extends State<WorkCard> with TickerProviderStateMixin {
               width: 350,
               height: 200,
               padding: const EdgeInsets.all(16),
-              child: Image.network(
+              child: Image.asset(
                 widget.work.imageUrl,
                 color: context.colors.labelPrimary,
               ),

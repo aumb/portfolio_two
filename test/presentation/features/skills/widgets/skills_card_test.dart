@@ -5,6 +5,8 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:portfolio_two/presentation/features/skills/skills.dart';
@@ -20,6 +22,8 @@ void main() {
       500,
     );
   }
+
+  setUpAll(() => HttpOverrides.global = null);
 
   group('SkillsCard', () {
     testWidgets('renders icon', (tester) async {

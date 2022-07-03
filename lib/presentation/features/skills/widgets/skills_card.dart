@@ -47,10 +47,12 @@ class SkillsCard extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 24),
-            AppText.body2(
-              itemsConcat,
-              key: const ValueKey('skillsCardItemsConcat'),
-              textAlign: TextAlign.center,
+            Flexible(
+              child: AppText.body2(
+                itemsConcat,
+                key: const ValueKey('skillsCardItemsConcat'),
+                textAlign: TextAlign.center,
+              ),
             ),
           ],
         ),

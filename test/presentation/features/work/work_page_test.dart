@@ -48,7 +48,7 @@ void main() {
 
       expect(
         find.byType(WorkCard),
-        findsNWidgets(3),
+        findsNWidgets(4),
       );
     });
   });
