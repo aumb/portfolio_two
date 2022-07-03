@@ -15,7 +15,7 @@ jobs:
       - uses: subosito/flutter-action@v1
       - run: flutter config --enable-web
       - run: flutter pub get
-      - run: flutter build web
+      - run: flutter build web -t lib/main_production.dart
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
