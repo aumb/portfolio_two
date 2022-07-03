@@ -113,7 +113,10 @@ number validation package.
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          AppText.headline4('Companies I have worked with'),
+          AppText.headline4(
+            'Companies I have worked with',
+            textAlign: TextAlign.center,
+          ),
           const SizedBox(height: 60),
           Row(
             mainAxisSize: MainAxisSize.min,

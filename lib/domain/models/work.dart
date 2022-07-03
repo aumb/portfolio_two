@@ -23,6 +23,7 @@ class Work extends Equatable {
   List<Object?> get props => [
         companyName,
         title,
+        imageUrl,
         startDate,
         endDate,
         location,

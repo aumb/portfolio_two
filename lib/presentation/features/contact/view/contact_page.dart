@@ -30,7 +30,7 @@ class ContactView extends StatelessWidget {
 
     return LayoutWidget(
       key: const ValueKey('contactPageLayoutWidget'),
-      padding: EdgeInsets.symmetric(horizontal: width * 0.2),
+      padding: EdgeInsets.symmetric(horizontal: width * .2),
       height: height * .8,
       backgroundColor: context.colors.accent,
       child: Column(
