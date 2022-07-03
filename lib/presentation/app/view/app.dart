@@ -25,6 +25,7 @@ class App extends StatelessWidget {
     final _appRouter = AppRouter();
 
     return MaterialApp.router(
+      title: 'Portfolio - Mathiew',
       useInheritedMediaQuery: true,
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
