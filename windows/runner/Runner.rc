@@ -95,7 +95,7 @@ BEGIN
             VALUE "InternalName", "portfolio_two" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2022 com.example.verygoodcore.portfolio-two. All rights reserved." "\0"
             VALUE "OriginalFilename", "portfolio_two.exe" "\0"
-            VALUE "ProductName", "Portfolio Two" "\0"
+            VALUE "ProductName", "Portfolio" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
