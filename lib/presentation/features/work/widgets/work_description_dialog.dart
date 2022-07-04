@@ -68,9 +68,7 @@ class WorkDescriptionDialog extends StatelessWidget {
           color: context.colors.labelPrimary,
         ),
         const SizedBox(height: 16),
-        Markdown(
-          padding: EdgeInsets.zero,
-          shrinkWrap: true,
+        MarkdownBody(
           data: work.description,
           onTapLink: (_, href, __) => launchUrl(Uri.parse(href ?? '')),
         ),
