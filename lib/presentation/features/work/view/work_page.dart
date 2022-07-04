@@ -80,7 +80,7 @@ helping them navigate through other APIrelated issues.
           endDate: DateTime(2020, 12),
           location: 'Beirut, Lebanon',
           description: '''
-* Responsible forimplementing majorfeatures across 4 banks.
+* Responsible for implementing major features across 4 banks.
 * Responsible for developing some internal flutter packages namely a mobile
 number validation package.
 * Maintaining existing code.
