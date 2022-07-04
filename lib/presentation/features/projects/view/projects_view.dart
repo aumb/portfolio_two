@@ -63,7 +63,7 @@ class ProjectsView extends StatelessWidget {
           imageUrl: CustomImages.illustraion,
           description: 'The web app you are using to view my work',
           status: ProjectStatus.completed,
-          url: 'https://github.com/aumb/top-stories',
+          url: 'https://github.com/aumb/portfolio_two',
         ),
       ),
     ];
