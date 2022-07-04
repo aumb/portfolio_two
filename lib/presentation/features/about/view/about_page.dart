@@ -40,7 +40,7 @@ class AboutView extends StatelessWidget {
             'Since beginning my journey as a software developer around '
             '${AppConstants.yearsOfWork} years ago, I have done remote work '
             'for companies, consulted for startups, and collaborated with '
-            'talented people to create digital products for both buisness '
+            'talented people to create digital products for both business '
             'and consumer use. I am very out-going, curious by nature, and '
             'a problem solver.',
             key: const ValueKey('aboutPageSubtitle'),
