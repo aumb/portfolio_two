@@ -67,7 +67,7 @@ reusable components and logic.
 by the company.
 * Working with designers to determine the UX/UI throughout the application.
 * Guiding the back-end team through the UX over different feature flows and
-helping them navigate through other APIrelated issues.
+helping them navigate through other API related issues.
 ''',
         ),
       ),
