@@ -7,11 +7,21 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:get_it/get_it.dart';
 import 'package:portfolio_two/presentation/features/contact/contact.dart';
 import 'package:portfolio_two/presentation/widgets/animated_circular_icon_button.dart';
+import 'package:portfolio_two/resources/dependecy_manager/dependecy_manager.dart';
 import '../../../helpers/helpers.dart';
 
 void main() {
+  setUp(() async {
+    await DependecyManager.inject(fromTest: true);
+  });
+
+  tearDown(() {
+    GetIt.instance.reset();
+  });
+
   group('ContactPage', () {
     Future<void> _setup(WidgetTester tester) async {
       await tester.pumpApp();

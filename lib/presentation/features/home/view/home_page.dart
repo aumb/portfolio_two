@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio_two/presentation/features/about/about.dart';
 import 'package:portfolio_two/presentation/features/contact/contact.dart';
+import 'package:portfolio_two/presentation/features/home/cubit/home_cubit.dart';
 import 'package:portfolio_two/presentation/features/introduction/introduction.dart';
 import 'package:portfolio_two/presentation/features/projects/projects.dart';
 import 'package:portfolio_two/presentation/features/skills/skills.dart';
 import 'package:portfolio_two/presentation/features/work/work.dart';
+import 'package:portfolio_two/resources/dependecy_manager/injector.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({
@@ -13,7 +16,10 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const HomeView();
+    return BlocProvider(
+      create: (_) => injector<HomeCubit>()..init(),
+      child: const HomeView(),
+    );
   }
 }
 
@@ -24,6 +30,8 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.select((HomeCubit c) => c.state);
+
     return Scaffold(
       body: ListView(
         physics: const BouncingScrollPhysics(),
