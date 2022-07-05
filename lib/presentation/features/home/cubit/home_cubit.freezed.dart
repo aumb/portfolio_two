@@ -97,15 +97,23 @@ class __$$_HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_HomeState extends _HomeState {
+class _$_HomeState extends _HomeState with DiagnosticableTreeMixin {
   _$_HomeState({required this.status}) : super._();
 
   @override
   final HomeStatus status;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeState(status: $status)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HomeState'))
+      ..add(DiagnosticsProperty('status', status));
   }
 
   @override
@@ -226,12 +234,18 @@ class __$$InitialCopyWithImpl<$Res> extends _$HomeStatusCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Initial implements Initial {
+class _$Initial with DiagnosticableTreeMixin implements Initial {
   const _$Initial();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeStatus.initial()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'HomeStatus.initial'));
   }
 
   @override
@@ -340,12 +354,18 @@ class __$$LoadingCopyWithImpl<$Res> extends _$HomeStatusCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Loading implements Loading {
+class _$Loading with DiagnosticableTreeMixin implements Loading {
   const _$Loading();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeStatus.loading()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'HomeStatus.loading'));
   }
 
   @override
@@ -454,12 +474,18 @@ class __$$LoadedCopyWithImpl<$Res> extends _$HomeStatusCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Loaded implements Loaded {
+class _$Loaded with DiagnosticableTreeMixin implements Loaded {
   const _$Loaded();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeStatus.loaded()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'HomeStatus.loaded'));
   }
 
   @override
@@ -581,15 +607,23 @@ class __$$FailureCopyWithImpl<$Res> extends _$HomeStatusCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Failure implements Failure {
+class _$Failure with DiagnosticableTreeMixin implements Failure {
   const _$Failure(this.error);
 
   @override
   final Exception error;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeStatus.error(error: $error)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HomeStatus.error'))
+      ..add(DiagnosticsProperty('error', error));
   }
 
   @override
