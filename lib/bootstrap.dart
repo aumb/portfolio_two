@@ -35,10 +35,10 @@ Future<void> bootstrap(FutureOr<Widget> Function(AppRouter) builder) async {
     log(details.exceptionAsString(), stackTrace: details.stack);
   };
 
-  await DependecyManager.inject();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await DependecyManager.inject();
 
   await runZonedGuarded(
     () async {
