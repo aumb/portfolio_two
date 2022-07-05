@@ -74,29 +74,6 @@ void main() {
       });
 
       test(
-          'should throw GetIntroductionException when Exception '
-          'occurs if doc data is null', () async {
-        final introductionDataMalformed = <String, dynamic>{
-          'title': 'title',
-          'subtitle': 'subtitle',
-        };
-
-        final mockQueryDocumentSnapshot = MockQueryDocumentSnapshot();
-
-        when(() => mockQuerySnapshot.docs)
-            .thenReturn([mockQueryDocumentSnapshot]);
-        when(mockQueryDocumentSnapshot.data)
-            .thenReturn(introductionDataMalformed);
-
-        final result = introductionRemoteDataSource.getInformation();
-
-        expect(
-          () => result,
-          throwsA(isA<IntroductionDeserializationException>()),
-        );
-      });
-
-      test(
           'throws GetIntroductionException when Exception occurs '
           'when trying to retrieve information from firestore', () async {
         when(() => mockFirebaseFirestore.collection('introduction'))
