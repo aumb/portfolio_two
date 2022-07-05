@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:injectable/injectable.dart';
 import 'package:portfolio_two/data/models/introduction/introduction_response.dart';
-import 'package:portfolio_two/data/repositories/introduction/introduction_exceptions.dart';
+import 'package:portfolio_two/data/repositories/introduction/data_sources/introduction_exceptions.dart';
 
 @LazySingleton()
 class IntroductionRemoteDataSource {

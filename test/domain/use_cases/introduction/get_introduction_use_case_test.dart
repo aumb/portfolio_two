@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:portfolio_two/data/models/introduction/introduction_response.dart';
-import 'package:portfolio_two/data/repositories/introduction/introduction_exceptions.dart';
+import 'package:portfolio_two/data/repositories/introduction/data_sources/introduction_exceptions.dart';
 import 'package:portfolio_two/data/repositories/introduction/introduction_repository.dart';
 import 'package:portfolio_two/domain/models/introduction/introduction.dart';
 import 'package:portfolio_two/domain/use_cases/introduction/get_introduction_use_case.dart';
