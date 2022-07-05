@@ -16,6 +16,13 @@ class IntroductionResponse with _$IntroductionResponse {
         subTitle: 'subtitle',
       );
 
+  factory IntroductionResponse.fallback() => const IntroductionResponse(
+        title: 'Software Engineer',
+        subTitle:
+            'I architect and code beautifully simple things, and I love what '
+            'I do',
+      );
+
   const IntroductionResponse._();
 
   factory IntroductionResponse.fromJson(Map<String, dynamic> json) =>

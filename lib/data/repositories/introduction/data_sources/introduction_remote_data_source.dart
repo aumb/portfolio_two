@@ -30,8 +30,8 @@ class IntroductionRemoteDataSource {
 
 extension on List<QueryDocumentSnapshot> {
   IntroductionResponse get introductionResponse {
-    final doc = first;
-    final data = doc.data() as Map<String, dynamic>?;
+    final doc = isEmpty ? null : first;
+    final data = doc?.data() as Map<String, dynamic>?;
 
     if (data != null) {
       try {
@@ -39,11 +39,8 @@ extension on List<QueryDocumentSnapshot> {
       } catch (error, stackTrace) {
         throw IntroductionDeserializationException(error, stackTrace);
       }
-    } else {
-      throw const GetIntroductionException(
-        'Introduction not found',
-        StackTrace.empty,
-      );
     }
+
+    return IntroductionResponse.fallback();
   }
 }
