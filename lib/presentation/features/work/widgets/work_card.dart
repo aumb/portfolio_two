@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_two/domain/models/work.dart';
+import 'package:portfolio_two/domain/models/work/work.dart';
 import 'package:portfolio_two/presentation/features/work/widgets/work_description_dialog.dart';
 import 'package:portfolio_two/resources/colors/colors.dart';
 
