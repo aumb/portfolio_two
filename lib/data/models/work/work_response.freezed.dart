@@ -25,9 +25,9 @@ mixin _$WorkResponse {
   String get imageUrl => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get location => throw _privateConstructorUsedError;
-  @JsonKey(fromJson: startDateFromTimestamp)
+  @JsonKey(fromJson: startDateFromTimestamp, toJson: startDateTimeToTimestamp)
   DateTime get startDate => throw _privateConstructorUsedError;
-  @JsonKey(fromJson: endDateFromTimestamp)
+  @JsonKey(fromJson: endDateFromTimestamp, toJson: endDateTimeToTimestamp)
   DateTime? get endDate => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -47,8 +47,10 @@ abstract class $WorkResponseCopyWith<$Res> {
       String imageUrl,
       String title,
       String location,
-      @JsonKey(fromJson: startDateFromTimestamp) DateTime startDate,
-      @JsonKey(fromJson: endDateFromTimestamp) DateTime? endDate});
+      @JsonKey(fromJson: startDateFromTimestamp, toJson: startDateTimeToTimestamp)
+          DateTime startDate,
+      @JsonKey(fromJson: endDateFromTimestamp, toJson: endDateTimeToTimestamp)
+          DateTime? endDate});
 }
 
 /// @nodoc
@@ -115,8 +117,10 @@ abstract class _$$_WorkResponseCopyWith<$Res>
       String imageUrl,
       String title,
       String location,
-      @JsonKey(fromJson: startDateFromTimestamp) DateTime startDate,
-      @JsonKey(fromJson: endDateFromTimestamp) DateTime? endDate});
+      @JsonKey(fromJson: startDateFromTimestamp, toJson: startDateTimeToTimestamp)
+          DateTime startDate,
+      @JsonKey(fromJson: endDateFromTimestamp, toJson: endDateTimeToTimestamp)
+          DateTime? endDate});
 }
 
 /// @nodoc
@@ -182,8 +186,10 @@ class _$_WorkResponse extends _WorkResponse {
       required this.imageUrl,
       required this.title,
       required this.location,
-      @JsonKey(fromJson: startDateFromTimestamp) required this.startDate,
-      @JsonKey(fromJson: endDateFromTimestamp) this.endDate})
+      @JsonKey(fromJson: startDateFromTimestamp, toJson: startDateTimeToTimestamp)
+          required this.startDate,
+      @JsonKey(fromJson: endDateFromTimestamp, toJson: endDateTimeToTimestamp)
+          this.endDate})
       : super._();
 
   factory _$_WorkResponse.fromJson(Map<String, dynamic> json) =>
@@ -200,10 +206,10 @@ class _$_WorkResponse extends _WorkResponse {
   @override
   final String location;
   @override
-  @JsonKey(fromJson: startDateFromTimestamp)
+  @JsonKey(fromJson: startDateFromTimestamp, toJson: startDateTimeToTimestamp)
   final DateTime startDate;
   @override
-  @JsonKey(fromJson: endDateFromTimestamp)
+  @JsonKey(fromJson: endDateFromTimestamp, toJson: endDateTimeToTimestamp)
   final DateTime? endDate;
 
   @override
@@ -257,9 +263,9 @@ abstract class _WorkResponse extends WorkResponse {
       required final String imageUrl,
       required final String title,
       required final String location,
-      @JsonKey(fromJson: startDateFromTimestamp)
+      @JsonKey(fromJson: startDateFromTimestamp, toJson: startDateTimeToTimestamp)
           required final DateTime startDate,
-      @JsonKey(fromJson: endDateFromTimestamp)
+      @JsonKey(fromJson: endDateFromTimestamp, toJson: endDateTimeToTimestamp)
           final DateTime? endDate}) = _$_WorkResponse;
   const _WorkResponse._() : super._();
 
@@ -277,10 +283,10 @@ abstract class _WorkResponse extends WorkResponse {
   @override
   String get location => throw _privateConstructorUsedError;
   @override
-  @JsonKey(fromJson: startDateFromTimestamp)
+  @JsonKey(fromJson: startDateFromTimestamp, toJson: startDateTimeToTimestamp)
   DateTime get startDate => throw _privateConstructorUsedError;
   @override
-  @JsonKey(fromJson: endDateFromTimestamp)
+  @JsonKey(fromJson: endDateFromTimestamp, toJson: endDateTimeToTimestamp)
   DateTime? get endDate => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

@@ -24,6 +24,6 @@ Map<String, dynamic> _$$_WorkResponseToJson(_$_WorkResponse instance) =>
       'imageUrl': instance.imageUrl,
       'title': instance.title,
       'location': instance.location,
-      'startDate': instance.startDate.toIso8601String(),
-      'endDate': instance.endDate?.toIso8601String(),
+      'startDate': startDateTimeToTimestamp(instance.startDate),
+      'endDate': endDateTimeToTimestamp(instance.endDate),
     };
