@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:portfolio_two/domain/models/work.dart';
+import 'package:portfolio_two/domain/models/work/work.dart';
 import 'package:portfolio_two/presentation/widgets/app_text.dart';
 import 'package:portfolio_two/presentation/widgets/custom_dialog.dart';
 import 'package:portfolio_two/presentation/widgets/custom_rich_text.dart';
