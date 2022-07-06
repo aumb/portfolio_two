@@ -43,6 +43,6 @@ extension WorkResponseExtensions on WorkResponse {
       );
 }
 
-extension SkillsResponseListExtensions on List<WorkResponse> {
+extension WorkResponseListExtensions on List<WorkResponse> {
   List<Work> get works => map((e) => e.work).toList();
 }
