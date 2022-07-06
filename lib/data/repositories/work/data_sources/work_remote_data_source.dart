@@ -39,12 +39,10 @@ extension on List<QueryDocumentSnapshot> {
       final data = document.data() as Map<String, dynamic>?;
 
       if (data != null) {
-        print(data);
         try {
           final parsed = WorkResponse.fromJson(data);
           work.add(parsed);
         } catch (error, stackTrace) {
-          print(error);
           throw WorkDeserializationException(error, stackTrace);
         }
       }
