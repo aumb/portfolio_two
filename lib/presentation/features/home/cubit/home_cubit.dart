@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:portfolio_two/domain/use_cases/about/get_about_use_case.dart';
+import 'package:portfolio_two/domain/use_cases/contact/get_contact_information_use_case.dart';
 import 'package:portfolio_two/domain/use_cases/introduction/get_introduction_use_case.dart';
 import 'package:portfolio_two/domain/use_cases/projects/get_projects_use_case.dart';
 import 'package:portfolio_two/domain/use_cases/skills/get_skills_use_case.dart';
@@ -19,6 +20,7 @@ class HomeCubit extends Cubit<HomeState> {
     this._getSkillsUseCase,
     this._getWorkUseCase,
     this._getProjectsUseCase,
+    this._getContactInformationUseCase,
   ) : super(HomeState.initial());
 
   final GetIntroductionUseCase _getIntroductionUseCase;
@@ -26,6 +28,7 @@ class HomeCubit extends Cubit<HomeState> {
   final GetSkillsUseCase _getSkillsUseCase;
   final GetWorkUseCase _getWorkUseCase;
   final GetProjectsUseCase _getProjectsUseCase;
+  final GetContactInformationUseCase _getContactInformationUseCase;
 
   Future<void> init() async {
     emit(
@@ -44,6 +47,8 @@ class HomeCubit extends Cubit<HomeState> {
     debugPrint(projects.toString());
     final work = await _getWorkUseCase.run();
     debugPrint(work.toString());
+    final contact = await _getContactInformationUseCase.run();
+    debugPrint(contact.toString());
 
     emit(
       state.copyWith(
