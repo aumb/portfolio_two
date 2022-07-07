@@ -12,6 +12,18 @@ class Skills with _$Skills {
     required String iconUrl,
   }) = _Skills;
 
+  @visibleForTesting
+  factory Skills.mock() => const Skills(
+        title: 'title',
+        index: 1,
+        items: [
+          'item1',
+          'item2',
+          'item3',
+        ],
+        iconUrl: 'iconUrl',
+      );
+
   const Skills._();
 }
 

@@ -10,6 +10,12 @@ class About with _$About {
     required String description,
   }) = _About;
 
+  @visibleForTesting
+  factory About.mock() => const About(
+        title: 'title',
+        description: 'description',
+      );
+
   factory About.fallback() => const About(
         title: 'Software Engineer',
         description:

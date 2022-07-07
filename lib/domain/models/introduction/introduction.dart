@@ -10,6 +10,12 @@ class Introduction with _$Introduction {
     required String subTitle,
   }) = _Introduction;
 
+  @visibleForTesting
+  factory Introduction.mock() => const Introduction(
+        title: 'title',
+        subTitle: 'subtitle',
+      );
+
   factory Introduction.fallback() => const Introduction(
         title: 'Software Engineer',
         subTitle:
