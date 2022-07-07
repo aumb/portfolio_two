@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_two/domain/models/project.dart';
+import 'package:portfolio_two/data/models/projects/project_response.dart';
+import 'package:portfolio_two/domain/models/projects/project.dart';
 import 'package:portfolio_two/presentation/features/projects/widgets/project_card.dart';
 import 'package:portfolio_two/presentation/widgets/app_text.dart';
 import 'package:portfolio_two/presentation/widgets/layout_widget.dart';

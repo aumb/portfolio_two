@@ -15,19 +15,23 @@ import '../../data/repositories/introduction/data_sources/introduction_remote_da
     as _i7;
 import '../../data/repositories/introduction/introduction_repository.dart'
     as _i8;
-import '../../data/repositories/skills/data_sources/skills_remote_data_source.dart'
+import '../../data/repositories/projects/data_sources/projects_remote_data_source.dart'
     as _i9;
-import '../../data/repositories/skills/skills_repository.dart' as _i10;
-import '../../data/repositories/work/data_sources/work_remote_data_source.dart'
+import '../../data/repositories/projects/projects_repository.dart' as _i10;
+import '../../data/repositories/skills/data_sources/skills_remote_data_source.dart'
     as _i11;
-import '../../data/repositories/work/work_repository.dart' as _i12;
+import '../../data/repositories/skills/skills_repository.dart' as _i12;
+import '../../data/repositories/work/data_sources/work_remote_data_source.dart'
+    as _i13;
+import '../../data/repositories/work/work_repository.dart' as _i14;
 import '../../domain/use_cases/about/get_about_use_case.dart' as _i6;
 import '../../domain/use_cases/introduction/get_introduction_use_case.dart'
-    as _i13;
-import '../../domain/use_cases/skills/get_skills_use_case.dart' as _i14;
-import '../../domain/use_cases/work/get_work_use_case.dart' as _i15;
+    as _i15;
+import '../../domain/use_cases/projects/get_projects_use_case.dart' as _i16;
+import '../../domain/use_cases/skills/get_skills_use_case.dart' as _i17;
+import '../../domain/use_cases/work/get_work_use_case.dart' as _i18;
 import '../../presentation/features/home/cubit/home_cubit.dart'
-    as _i16; // ignore_for_file: unnecessary_lambdas
+    as _i19; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -44,24 +48,31 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i7.IntroductionRemoteDataSource(get<_i4.FirebaseFirestore>()));
   gh.lazySingleton<_i8.IntroductionRepository>(() =>
       _i8.IntroductionRepository(get<_i7.IntroductionRemoteDataSource>()));
-  gh.lazySingleton<_i9.SkillsRemoteDataSource>(
-      () => _i9.SkillsRemoteDataSource(get<_i4.FirebaseFirestore>()));
-  gh.lazySingleton<_i10.SkillsRepository>(
-      () => _i10.SkillsRepository(get<_i9.SkillsRemoteDataSource>()));
-  gh.lazySingleton<_i11.WorkRemoteDataSource>(
-      () => _i11.WorkRemoteDataSource(get<_i4.FirebaseFirestore>()));
-  gh.lazySingleton<_i12.WorkRepository>(
-      () => _i12.WorkRepository(get<_i11.WorkRemoteDataSource>()));
-  gh.factory<_i13.GetIntroductionUseCase>(
-      () => _i13.GetIntroductionUseCase(get<_i8.IntroductionRepository>()));
-  gh.factory<_i14.GetSkillsUseCase>(
-      () => _i14.GetSkillsUseCase(get<_i10.SkillsRepository>()));
-  gh.factory<_i15.GetWorkUseCase>(
-      () => _i15.GetWorkUseCase(get<_i12.WorkRepository>()));
-  gh.factory<_i16.HomeCubit>(() => _i16.HomeCubit(
-      get<_i13.GetIntroductionUseCase>(),
+  gh.lazySingleton<_i9.ProjectsRemoteDataSource>(
+      () => _i9.ProjectsRemoteDataSource(get<_i4.FirebaseFirestore>()));
+  gh.lazySingleton<_i10.ProjectsRepository>(
+      () => _i10.ProjectsRepository(get<_i9.ProjectsRemoteDataSource>()));
+  gh.lazySingleton<_i11.SkillsRemoteDataSource>(
+      () => _i11.SkillsRemoteDataSource(get<_i4.FirebaseFirestore>()));
+  gh.lazySingleton<_i12.SkillsRepository>(
+      () => _i12.SkillsRepository(get<_i11.SkillsRemoteDataSource>()));
+  gh.lazySingleton<_i13.WorkRemoteDataSource>(
+      () => _i13.WorkRemoteDataSource(get<_i4.FirebaseFirestore>()));
+  gh.lazySingleton<_i14.WorkRepository>(
+      () => _i14.WorkRepository(get<_i13.WorkRemoteDataSource>()));
+  gh.factory<_i15.GetIntroductionUseCase>(
+      () => _i15.GetIntroductionUseCase(get<_i8.IntroductionRepository>()));
+  gh.factory<_i16.GetProjectsUseCase>(
+      () => _i16.GetProjectsUseCase(get<_i10.ProjectsRepository>()));
+  gh.factory<_i17.GetSkillsUseCase>(
+      () => _i17.GetSkillsUseCase(get<_i12.SkillsRepository>()));
+  gh.factory<_i18.GetWorkUseCase>(
+      () => _i18.GetWorkUseCase(get<_i14.WorkRepository>()));
+  gh.factory<_i19.HomeCubit>(() => _i19.HomeCubit(
+      get<_i15.GetIntroductionUseCase>(),
       get<_i6.GetAboutUseCase>(),
-      get<_i14.GetSkillsUseCase>(),
-      get<_i15.GetWorkUseCase>()));
+      get<_i17.GetSkillsUseCase>(),
+      get<_i18.GetWorkUseCase>(),
+      get<_i16.GetProjectsUseCase>()));
   return get;
 }
