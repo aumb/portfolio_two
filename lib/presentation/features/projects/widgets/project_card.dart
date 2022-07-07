@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_two/domain/models/project.dart';
+import 'package:portfolio_two/domain/models/projects/project.dart';
 import 'package:portfolio_two/presentation/widgets/app_text.dart';
 import 'package:portfolio_two/presentation/widgets/card_button.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -54,8 +54,7 @@ class ProjectCard extends StatelessWidget {
                     children: [
                       CardButton(
                         label: 'view',
-                        onPressed: () =>
-                            launchUrl(Uri.parse(project.url ?? '')),
+                        onPressed: () => launchUrl(Uri.parse(project.url)),
                       ),
                     ],
                   ),
