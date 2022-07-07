@@ -6,8 +6,11 @@
 // https://opensource.org/licenses/MIT.
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:portfolio_two/presentation/features/home/cubit/home_cubit.dart';
+import 'package:portfolio_two/resources/dependecy_manager/injector.dart';
 import 'package:portfolio_two/resources/l10n/l10n.dart';
 import 'package:portfolio_two/resources/router/router.dart';
 
@@ -18,14 +21,21 @@ extension PumpApp on WidgetTester {
     final _router = router ?? AppRouter();
 
     return pumpWidget(
-      MaterialApp.router(
-        localizationsDelegates: const [
-          AppLocalizations.delegate,
-          GlobalMaterialLocalizations.delegate,
+      MultiBlocProvider(
+        providers: [
+          BlocProvider<HomeCubit>(
+            create: (BuildContext context) => injector<HomeCubit>(),
+          ),
         ],
-        supportedLocales: AppLocalizations.supportedLocales,
-        routerDelegate: _router.delegate(),
-        routeInformationParser: _router.defaultRouteParser(),
+        child: MaterialApp.router(
+          localizationsDelegates: const [
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+          ],
+          supportedLocales: AppLocalizations.supportedLocales,
+          routerDelegate: _router.delegate(),
+          routeInformationParser: _router.defaultRouteParser(),
+        ),
       ),
     );
   }
