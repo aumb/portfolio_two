@@ -17,6 +17,12 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$HomeState {
   HomeStatus get status => throw _privateConstructorUsedError;
+  Introduction get introduction => throw _privateConstructorUsedError;
+  About get about => throw _privateConstructorUsedError;
+  List<Skills> get skills => throw _privateConstructorUsedError;
+  List<Project> get projects => throw _privateConstructorUsedError;
+  List<Work> get work => throw _privateConstructorUsedError;
+  Contact get contact => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -27,9 +33,19 @@ mixin _$HomeState {
 abstract class $HomeStateCopyWith<$Res> {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
       _$HomeStateCopyWithImpl<$Res>;
-  $Res call({HomeStatus status});
+  $Res call(
+      {HomeStatus status,
+      Introduction introduction,
+      About about,
+      List<Skills> skills,
+      List<Project> projects,
+      List<Work> work,
+      Contact contact});
 
   $HomeStatusCopyWith<$Res> get status;
+  $IntroductionCopyWith<$Res> get introduction;
+  $AboutCopyWith<$Res> get about;
+  $ContactCopyWith<$Res> get contact;
 }
 
 /// @nodoc
@@ -43,12 +59,42 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
   @override
   $Res call({
     Object? status = freezed,
+    Object? introduction = freezed,
+    Object? about = freezed,
+    Object? skills = freezed,
+    Object? projects = freezed,
+    Object? work = freezed,
+    Object? contact = freezed,
   }) {
     return _then(_value.copyWith(
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as HomeStatus,
+      introduction: introduction == freezed
+          ? _value.introduction
+          : introduction // ignore: cast_nullable_to_non_nullable
+              as Introduction,
+      about: about == freezed
+          ? _value.about
+          : about // ignore: cast_nullable_to_non_nullable
+              as About,
+      skills: skills == freezed
+          ? _value.skills
+          : skills // ignore: cast_nullable_to_non_nullable
+              as List<Skills>,
+      projects: projects == freezed
+          ? _value.projects
+          : projects // ignore: cast_nullable_to_non_nullable
+              as List<Project>,
+      work: work == freezed
+          ? _value.work
+          : work // ignore: cast_nullable_to_non_nullable
+              as List<Work>,
+      contact: contact == freezed
+          ? _value.contact
+          : contact // ignore: cast_nullable_to_non_nullable
+              as Contact,
     ));
   }
 
@@ -56,6 +102,27 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
   $HomeStatusCopyWith<$Res> get status {
     return $HomeStatusCopyWith<$Res>(_value.status, (value) {
       return _then(_value.copyWith(status: value));
+    });
+  }
+
+  @override
+  $IntroductionCopyWith<$Res> get introduction {
+    return $IntroductionCopyWith<$Res>(_value.introduction, (value) {
+      return _then(_value.copyWith(introduction: value));
+    });
+  }
+
+  @override
+  $AboutCopyWith<$Res> get about {
+    return $AboutCopyWith<$Res>(_value.about, (value) {
+      return _then(_value.copyWith(about: value));
+    });
+  }
+
+  @override
+  $ContactCopyWith<$Res> get contact {
+    return $ContactCopyWith<$Res>(_value.contact, (value) {
+      return _then(_value.copyWith(contact: value));
     });
   }
 }
@@ -66,10 +133,23 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
           _$_HomeState value, $Res Function(_$_HomeState) then) =
       __$$_HomeStateCopyWithImpl<$Res>;
   @override
-  $Res call({HomeStatus status});
+  $Res call(
+      {HomeStatus status,
+      Introduction introduction,
+      About about,
+      List<Skills> skills,
+      List<Project> projects,
+      List<Work> work,
+      Contact contact});
 
   @override
   $HomeStatusCopyWith<$Res> get status;
+  @override
+  $IntroductionCopyWith<$Res> get introduction;
+  @override
+  $AboutCopyWith<$Res> get about;
+  @override
+  $ContactCopyWith<$Res> get contact;
 }
 
 /// @nodoc
@@ -85,12 +165,42 @@ class __$$_HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? status = freezed,
+    Object? introduction = freezed,
+    Object? about = freezed,
+    Object? skills = freezed,
+    Object? projects = freezed,
+    Object? work = freezed,
+    Object? contact = freezed,
   }) {
     return _then(_$_HomeState(
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as HomeStatus,
+      introduction: introduction == freezed
+          ? _value.introduction
+          : introduction // ignore: cast_nullable_to_non_nullable
+              as Introduction,
+      about: about == freezed
+          ? _value.about
+          : about // ignore: cast_nullable_to_non_nullable
+              as About,
+      skills: skills == freezed
+          ? _value._skills
+          : skills // ignore: cast_nullable_to_non_nullable
+              as List<Skills>,
+      projects: projects == freezed
+          ? _value._projects
+          : projects // ignore: cast_nullable_to_non_nullable
+              as List<Project>,
+      work: work == freezed
+          ? _value._work
+          : work // ignore: cast_nullable_to_non_nullable
+              as List<Work>,
+      contact: contact == freezed
+          ? _value.contact
+          : contact // ignore: cast_nullable_to_non_nullable
+              as Contact,
     ));
   }
 }
@@ -98,14 +208,52 @@ class __$$_HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_HomeState extends _HomeState with DiagnosticableTreeMixin {
-  _$_HomeState({required this.status}) : super._();
+  _$_HomeState(
+      {required this.status,
+      required this.introduction,
+      required this.about,
+      required final List<Skills> skills,
+      required final List<Project> projects,
+      required final List<Work> work,
+      required this.contact})
+      : _skills = skills,
+        _projects = projects,
+        _work = work,
+        super._();
 
   @override
   final HomeStatus status;
+  @override
+  final Introduction introduction;
+  @override
+  final About about;
+  final List<Skills> _skills;
+  @override
+  List<Skills> get skills {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_skills);
+  }
+
+  final List<Project> _projects;
+  @override
+  List<Project> get projects {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_projects);
+  }
+
+  final List<Work> _work;
+  @override
+  List<Work> get work {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_work);
+  }
+
+  @override
+  final Contact contact;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'HomeState(status: $status)';
+    return 'HomeState(status: $status, introduction: $introduction, about: $about, skills: $skills, projects: $projects, work: $work, contact: $contact)';
   }
 
   @override
@@ -113,7 +261,13 @@ class _$_HomeState extends _HomeState with DiagnosticableTreeMixin {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'HomeState'))
-      ..add(DiagnosticsProperty('status', status));
+      ..add(DiagnosticsProperty('status', status))
+      ..add(DiagnosticsProperty('introduction', introduction))
+      ..add(DiagnosticsProperty('about', about))
+      ..add(DiagnosticsProperty('skills', skills))
+      ..add(DiagnosticsProperty('projects', projects))
+      ..add(DiagnosticsProperty('work', work))
+      ..add(DiagnosticsProperty('contact', contact));
   }
 
   @override
@@ -121,12 +275,26 @@ class _$_HomeState extends _HomeState with DiagnosticableTreeMixin {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_HomeState &&
-            const DeepCollectionEquality().equals(other.status, status));
+            const DeepCollectionEquality().equals(other.status, status) &&
+            const DeepCollectionEquality()
+                .equals(other.introduction, introduction) &&
+            const DeepCollectionEquality().equals(other.about, about) &&
+            const DeepCollectionEquality().equals(other._skills, _skills) &&
+            const DeepCollectionEquality().equals(other._projects, _projects) &&
+            const DeepCollectionEquality().equals(other._work, _work) &&
+            const DeepCollectionEquality().equals(other.contact, contact));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(status));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(status),
+      const DeepCollectionEquality().hash(introduction),
+      const DeepCollectionEquality().hash(about),
+      const DeepCollectionEquality().hash(_skills),
+      const DeepCollectionEquality().hash(_projects),
+      const DeepCollectionEquality().hash(_work),
+      const DeepCollectionEquality().hash(contact));
 
   @JsonKey(ignore: true)
   @override
@@ -135,11 +303,30 @@ class _$_HomeState extends _HomeState with DiagnosticableTreeMixin {
 }
 
 abstract class _HomeState extends HomeState {
-  factory _HomeState({required final HomeStatus status}) = _$_HomeState;
+  factory _HomeState(
+      {required final HomeStatus status,
+      required final Introduction introduction,
+      required final About about,
+      required final List<Skills> skills,
+      required final List<Project> projects,
+      required final List<Work> work,
+      required final Contact contact}) = _$_HomeState;
   _HomeState._() : super._();
 
   @override
   HomeStatus get status => throw _privateConstructorUsedError;
+  @override
+  Introduction get introduction => throw _privateConstructorUsedError;
+  @override
+  About get about => throw _privateConstructorUsedError;
+  @override
+  List<Skills> get skills => throw _privateConstructorUsedError;
+  @override
+  List<Project> get projects => throw _privateConstructorUsedError;
+  @override
+  List<Work> get work => throw _privateConstructorUsedError;
+  @override
+  Contact get contact => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>

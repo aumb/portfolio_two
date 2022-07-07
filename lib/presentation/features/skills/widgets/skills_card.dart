@@ -1,25 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_two/domain/models/skills/skills.dart';
 import 'package:portfolio_two/presentation/widgets/app_text.dart';
 import 'package:portfolio_two/presentation/widgets/svg_icon.dart';
 
 class SkillsCard extends StatelessWidget {
   const SkillsCard({
     super.key,
-    required this.title,
-    required this.imageAsset,
-    this.items = const [],
+    required this.skills,
   });
 
-  final String title;
-  final String imageAsset;
-  final List<String> items;
+  final Skills skills;
 
   String get itemsConcat {
     final buffer = StringBuffer();
 
-    for (var i = 0; i < items.length; i++) {
-      buffer.write(items[i]);
-      if (i < items.length - 1) buffer.write(', ');
+    for (var i = 0; i < skills.items.length; i++) {
+      buffer.write(skills.items[i]);
+      if (i < skills.items.length - 1) buffer.write(', ');
     }
 
     return buffer.toString();
@@ -35,14 +32,16 @@ class SkillsCard extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SvgIcon.s50(
-              imageAsset,
+            SvgIcon.network(
+              skills.iconUrl,
               key: const ValueKey('skillsCardIcon'),
               color: Theme.of(context).colorScheme.secondary,
+              width: 50,
+              height: 50,
             ),
             const SizedBox(height: 32),
             AppText.headline6(
-              title,
+              skills.title,
               key: const ValueKey('skillsCardTitle'),
               textAlign: TextAlign.center,
             ),

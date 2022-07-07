@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:portfolio_two/presentation/features/home/cubit/home_cubit.dart';
 import 'package:portfolio_two/presentation/features/skills/widgets/skills_card.dart';
 import 'package:portfolio_two/presentation/widgets/layout_widget.dart';
-import 'package:portfolio_two/resources/assets/custom_icons.dart';
 
 class SkillsPage extends StatelessWidget {
   const SkillsPage({
@@ -22,6 +23,7 @@ class SkillsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
+    final skills = context.watch<HomeCubit>().state.skills;
 
     return LayoutWidget(
       key: const ValueKey('skillsPageLayoutWidget'),
@@ -30,45 +32,13 @@ class SkillsView extends StatelessWidget {
         spacing: 16,
         runSpacing: 24,
         alignment: WrapAlignment.center,
-        children: const <Widget>[
-          SkillsCard(
-            title: 'Languages',
-            imageAsset: CustomIcons.languages,
-            items: [
-              'Dart',
-              'TypeScript',
-              'JavaScript',
-              'HTML',
-              'CSS',
-              'PHP',
-              'Java',
-              'Python',
-              'SQL',
-              'Git',
-            ],
-          ),
-          SkillsCard(
-            title: 'Tools',
-            imageAsset: CustomIcons.tools,
-            items: [
-              'Github',
-              'Gitlab',
-              'VSCode',
-              'PostgreSQL',
-              'Firebase',
-            ],
-          ),
-          SkillsCard(
-            title: 'Frameworks',
-            imageAsset: CustomIcons.frameworks,
-            items: [
-              'Flutter',
-              'Laravel',
-              'Angular',
-              'NodeJs',
-            ],
-          ),
-        ],
+        children: skills
+            .map(
+              (e) => SkillsCard(
+                skills: e,
+              ),
+            )
+            .toList(),
       ),
     );
   }

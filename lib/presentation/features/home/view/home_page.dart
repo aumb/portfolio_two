@@ -26,20 +26,26 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.select((HomeCubit c) => c.state);
+    final status = context.select((HomeCubit c) => c.state.status);
 
     return Scaffold(
-      body: ListView(
-        physics: const BouncingScrollPhysics(),
-        padding: EdgeInsets.zero,
-        children: const [
-          IntroductionPage(),
-          AboutPage(),
-          SkillsPage(),
-          ProjectsPage(),
-          WorkPage(),
-          ContactPage(),
-        ],
+      body: status.maybeMap(
+        loading: (_) => const Center(
+          child: CircularProgressIndicator(),
+        ),
+        loaded: (_) => ListView(
+          physics: const BouncingScrollPhysics(),
+          padding: EdgeInsets.zero,
+          children: const [
+            IntroductionPage(),
+            AboutPage(),
+            SkillsPage(),
+            ProjectsPage(),
+            WorkPage(),
+            ContactPage(),
+          ],
+        ),
+        orElse: () => const SizedBox.shrink(),
       ),
     );
   }

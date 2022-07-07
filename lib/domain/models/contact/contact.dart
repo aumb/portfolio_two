@@ -27,6 +27,16 @@ class Contact with _$Contact {
         linkedinUrl: 'linkedinUrl',
       );
 
+  factory Contact.fallback() => const Contact(
+        title: 'Living and learning one day at a time.',
+        subtitle: 'Get in touch',
+        email: 'mathiew95@gmail.com',
+        facebookUrl: 'https://www.facebook.com/mathiew.abbas',
+        githubUrl: 'https://github.com/aumb',
+        instagramUrl: 'https://www.instagram.com/mathiewabbas',
+        linkedinUrl: 'https://www.linkedin.com/in/mathiewabbas',
+      );
+
   const Contact._();
 
   factory Contact.fromJson(Map<String, dynamic> json) =>

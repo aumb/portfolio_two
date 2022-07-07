@@ -9,6 +9,7 @@ class Skills with _$Skills {
     required String title,
     required num index,
     required List<String> items,
+    required String iconUrl,
   }) = _Skills;
 
   const Skills._();
@@ -19,6 +20,7 @@ extension SkillsResponseExtensions on SkillsResponse {
         title: title,
         index: index,
         items: items,
+        iconUrl: iconUrl,
       );
 }
 

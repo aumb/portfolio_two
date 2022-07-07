@@ -10,6 +10,13 @@ class Introduction with _$Introduction {
     required String subTitle,
   }) = _Introduction;
 
+  factory Introduction.fallback() => const Introduction(
+        title: 'Software Engineer',
+        subTitle:
+            'I architect and code beautifully simple things, and I love what '
+            'I do',
+      );
+
   const Introduction._();
 }
 

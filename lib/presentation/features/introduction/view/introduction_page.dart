@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:portfolio_two/presentation/features/home/cubit/home_cubit.dart';
 import 'package:portfolio_two/presentation/widgets/app_text.dart';
 import 'package:portfolio_two/presentation/widgets/layout_widget.dart';
 import 'package:portfolio_two/presentation/widgets/profile_image.dart';
@@ -22,6 +24,8 @@ class IntroductionView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final introduction = context.watch<HomeCubit>().state.introduction;
+
     return LayoutWidget(
       height: MediaQuery.of(context).size.height,
       padding: const EdgeInsets.symmetric(
@@ -33,14 +37,13 @@ class IntroductionView extends StatelessWidget {
           children: [
             const SizedBox(height: 56),
             AppText.headline4(
-              'Software developer',
+              introduction.title,
               key: const ValueKey('introductionPageTitle'),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 24),
             AppText.headline5(
-              'I architect and code beautifully simple things, and I love what '
-              'I do',
+              introduction.subTitle,
               key: const ValueKey('introductionPageSubtitle'),
               textAlign: TextAlign.center,
             ),

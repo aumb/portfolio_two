@@ -4,11 +4,23 @@ part of 'home_cubit.dart';
 class HomeState with _$HomeState {
   factory HomeState({
     required HomeStatus status,
+    required Introduction introduction,
+    required About about,
+    required List<Skills> skills,
+    required List<Project> projects,
+    required List<Work> work,
+    required Contact contact,
   }) = _HomeState;
 
   factory HomeState.initial() {
     return HomeState(
       status: const HomeStatus.initial(),
+      introduction: Introduction.fallback(),
+      about: About.fallback(),
+      skills: [],
+      projects: [],
+      work: [],
+      contact: Contact.fallback(),
     );
   }
 
