@@ -9,6 +9,7 @@ import 'package:portfolio_two/domain/models/projects/project.dart';
 import 'package:portfolio_two/domain/models/skills/skills.dart';
 import 'package:portfolio_two/domain/models/work/work.dart';
 import 'package:portfolio_two/domain/use_cases/about/get_about_use_case.dart';
+import 'package:portfolio_two/domain/use_cases/authentication/sign_in_anonymously_use_case.dart';
 import 'package:portfolio_two/domain/use_cases/contact/get_contact_information_use_case.dart';
 import 'package:portfolio_two/domain/use_cases/introduction/get_introduction_use_case.dart';
 import 'package:portfolio_two/domain/use_cases/projects/get_projects_use_case.dart';
@@ -28,6 +29,7 @@ class HomeCubit extends Cubit<HomeState> {
     this._getWorkUseCase,
     this._getProjectsUseCase,
     this._getContactInformationUseCase,
+    this._signInAnonymouslyUseCase,
   ) : super(HomeState.initial());
 
   final GetIntroductionUseCase _getIntroductionUseCase;
@@ -36,6 +38,7 @@ class HomeCubit extends Cubit<HomeState> {
   final GetWorkUseCase _getWorkUseCase;
   final GetProjectsUseCase _getProjectsUseCase;
   final GetContactInformationUseCase _getContactInformationUseCase;
+  final SignInAnonymouslyUseCase _signInAnonymouslyUseCase;
 
   Future<void> init() async {
     emit(
@@ -43,33 +46,39 @@ class HomeCubit extends Cubit<HomeState> {
         status: const HomeStatus.loading(),
       ),
     );
-
-    await Future.wait([
-      getIntroduction(),
-      getAbout(),
-      getSkills(),
-      getProjects(),
-      getWork(),
-      getContactInformation()
-    ]).then((results) {
-      emit(
-        state.copyWith(
-          status: const HomeStatus.loaded(),
-          introduction: results[0] as Introduction,
-          about: results[1] as About,
-          skills: results[2] as List<Skills>,
-          projects: results[3] as List<Project>,
-          work: results[4] as List<Work>,
-          contact: results[5] as Contact,
-        ),
-      );
-    }).catchPrintError(
-      (e, _) => emit(
-        state.copyWith(
-          status: HomeStatus.error(e),
-        ),
-      ),
-    );
+    await _signInAnonymouslyUseCase
+        .run()
+        .then(
+          (_) async => Future.wait([
+            getIntroduction(),
+            getAbout(),
+            getSkills(),
+            getProjects(),
+            getWork(),
+            getContactInformation()
+          ]).then(
+            (results) {
+              emit(
+                state.copyWith(
+                  status: const HomeStatus.loaded(),
+                  introduction: results[0] as Introduction,
+                  about: results[1] as About,
+                  skills: results[2] as List<Skills>,
+                  projects: results[3] as List<Project>,
+                  work: results[4] as List<Work>,
+                  contact: results[5] as Contact,
+                ),
+              );
+            },
+          ),
+        )
+        .catchPrintError(
+          (e, _) => emit(
+            state.copyWith(
+              status: HomeStatus.error(e),
+            ),
+          ),
+        );
   }
 
   Future<Introduction> getIntroduction() {
