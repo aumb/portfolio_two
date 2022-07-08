@@ -17,14 +17,16 @@ import 'package:portfolio_two/resources/router/router.dart';
 extension PumpApp on WidgetTester {
   Future<void> pumpApp({
     AppRouter? router,
+    HomeCubit? homeCubit,
   }) {
     final _router = router ?? AppRouter();
+    final _homeCubit = homeCubit ?? injector<HomeCubit>();
 
     return pumpWidget(
       MultiBlocProvider(
         providers: [
           BlocProvider<HomeCubit>(
-            create: (BuildContext context) => injector<HomeCubit>(),
+            create: (BuildContext context) => _homeCubit..init(),
           ),
         ],
         child: MaterialApp.router(

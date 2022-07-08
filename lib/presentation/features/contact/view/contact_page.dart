@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:portfolio_two/domain/models/contact/contact.dart';
+import 'package:portfolio_two/presentation/features/home/cubit/home_cubit.dart';
 import 'package:portfolio_two/presentation/widgets/animated_circular_icon_button.dart';
 import 'package:portfolio_two/presentation/widgets/app_text.dart';
 import 'package:portfolio_two/presentation/widgets/layout_widget.dart';
@@ -27,6 +30,7 @@ class ContactView extends StatelessWidget {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
+    final contact = context.watch<HomeCubit>().state.contact;
 
     return LayoutWidget(
       key: const ValueKey('contactPageLayoutWidget'),
@@ -38,14 +42,14 @@ class ContactView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           AppText.headline4(
-            'Living and learning one day at a time.',
+            contact.title,
             key: const ValueKey('contactPageTitle'),
             color: context.colors.labelSecondary.withOpacity(.54),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 44),
           AppText.headline5(
-            'Get in touch',
+            contact.subtitle,
             key: const ValueKey('contactPageSubTitle'),
             color: context.colors.labelSecondary.withOpacity(.7),
             textAlign: TextAlign.center,
@@ -56,37 +60,44 @@ class ContactView extends StatelessWidget {
             spacing: 16,
             runSpacing: 8,
             children: [
-              AnimatedCircularIconButton(
-                key: const ValueKey('githubIconButton'),
-                iconAsset: CustomIcons.github,
-                onPressed: () => launchUrl(Uri.parse(AppConstants.githubUrl)),
-              ),
-              AnimatedCircularIconButton(
-                key: const ValueKey('linkedinIconButton'),
-                iconAsset: CustomIcons.linkedin,
-                onPressed: () => launchUrl(Uri.parse(AppConstants.linkedinUrl)),
-              ),
-              AnimatedCircularIconButton(
-                key: const ValueKey('mailIconButton'),
-                iconAsset: CustomIcons.mail,
-                onPressed: () => launchUrl(
-                  Uri(
-                    scheme: 'mailto',
-                    path: AppConstants.email,
+              if (contact.showGithub)
+                AnimatedCircularIconButton(
+                  key: const ValueKey('githubIconButton'),
+                  iconAsset: CustomIcons.github,
+                  onPressed: () => launchUrl(Uri.parse(AppConstants.githubUrl)),
+                ),
+              if (contact.showLinkedin)
+                AnimatedCircularIconButton(
+                  key: const ValueKey('linkedinIconButton'),
+                  iconAsset: CustomIcons.linkedin,
+                  onPressed: () =>
+                      launchUrl(Uri.parse(AppConstants.linkedinUrl)),
+                ),
+              if (contact.showEmail)
+                AnimatedCircularIconButton(
+                  key: const ValueKey('mailIconButton'),
+                  iconAsset: CustomIcons.mail,
+                  onPressed: () => launchUrl(
+                    Uri(
+                      scheme: 'mailto',
+                      path: AppConstants.email,
+                    ),
                   ),
                 ),
-              ),
-              AnimatedCircularIconButton(
-                key: const ValueKey('fbIconButton'),
-                iconAsset: CustomIcons.facebook,
-                onPressed: () => launchUrl(Uri.parse(AppConstants.facebookUrl)),
-              ),
-              AnimatedCircularIconButton(
-                key: const ValueKey('instaIconButton'),
-                iconAsset: CustomIcons.instagram,
-                onPressed: () =>
-                    launchUrl(Uri.parse(AppConstants.instagramUrl)),
-              ),
+              if (contact.showFacebook)
+                AnimatedCircularIconButton(
+                  key: const ValueKey('fbIconButton'),
+                  iconAsset: CustomIcons.facebook,
+                  onPressed: () =>
+                      launchUrl(Uri.parse(AppConstants.facebookUrl)),
+                ),
+              if (contact.showInstagram)
+                AnimatedCircularIconButton(
+                  key: const ValueKey('instaIconButton'),
+                  iconAsset: CustomIcons.instagram,
+                  onPressed: () =>
+                      launchUrl(Uri.parse(AppConstants.instagramUrl)),
+                ),
             ],
           ),
         ],

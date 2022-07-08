@@ -9,7 +9,20 @@ class Skills with _$Skills {
     required String title,
     required num index,
     required List<String> items,
+    required String iconUrl,
   }) = _Skills;
+
+  @visibleForTesting
+  factory Skills.mock() => const Skills(
+        title: 'title',
+        index: 1,
+        items: [
+          'item1',
+          'item2',
+          'item3',
+        ],
+        iconUrl: 'https://www.google.com',
+      );
 
   const Skills._();
 }
@@ -19,6 +32,7 @@ extension SkillsResponseExtensions on SkillsResponse {
         title: title,
         index: index,
         items: items,
+        iconUrl: iconUrl,
       );
 }
 

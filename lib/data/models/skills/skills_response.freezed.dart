@@ -23,6 +23,7 @@ mixin _$SkillsResponse {
   String get title => throw _privateConstructorUsedError;
   num get index => throw _privateConstructorUsedError;
   List<String> get items => throw _privateConstructorUsedError;
+  String get iconUrl => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +36,7 @@ abstract class $SkillsResponseCopyWith<$Res> {
   factory $SkillsResponseCopyWith(
           SkillsResponse value, $Res Function(SkillsResponse) then) =
       _$SkillsResponseCopyWithImpl<$Res>;
-  $Res call({String title, num index, List<String> items});
+  $Res call({String title, num index, List<String> items, String iconUrl});
 }
 
 /// @nodoc
@@ -52,6 +53,7 @@ class _$SkillsResponseCopyWithImpl<$Res>
     Object? title = freezed,
     Object? index = freezed,
     Object? items = freezed,
+    Object? iconUrl = freezed,
   }) {
     return _then(_value.copyWith(
       title: title == freezed
@@ -66,6 +68,10 @@ class _$SkillsResponseCopyWithImpl<$Res>
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      iconUrl: iconUrl == freezed
+          ? _value.iconUrl
+          : iconUrl // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -77,7 +83,7 @@ abstract class _$$_SkillsResponseCopyWith<$Res>
           _$_SkillsResponse value, $Res Function(_$_SkillsResponse) then) =
       __$$_SkillsResponseCopyWithImpl<$Res>;
   @override
-  $Res call({String title, num index, List<String> items});
+  $Res call({String title, num index, List<String> items, String iconUrl});
 }
 
 /// @nodoc
@@ -96,6 +102,7 @@ class __$$_SkillsResponseCopyWithImpl<$Res>
     Object? title = freezed,
     Object? index = freezed,
     Object? items = freezed,
+    Object? iconUrl = freezed,
   }) {
     return _then(_$_SkillsResponse(
       title: title == freezed
@@ -110,6 +117,10 @@ class __$$_SkillsResponseCopyWithImpl<$Res>
           ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      iconUrl: iconUrl == freezed
+          ? _value.iconUrl
+          : iconUrl // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -120,7 +131,8 @@ class _$_SkillsResponse extends _SkillsResponse {
   const _$_SkillsResponse(
       {required this.title,
       required this.index,
-      required final List<String> items})
+      required final List<String> items,
+      required this.iconUrl})
       : _items = items,
         super._();
 
@@ -139,8 +151,11 @@ class _$_SkillsResponse extends _SkillsResponse {
   }
 
   @override
+  final String iconUrl;
+
+  @override
   String toString() {
-    return 'SkillsResponse(title: $title, index: $index, items: $items)';
+    return 'SkillsResponse(title: $title, index: $index, items: $items, iconUrl: $iconUrl)';
   }
 
   @override
@@ -150,7 +165,8 @@ class _$_SkillsResponse extends _SkillsResponse {
             other is _$_SkillsResponse &&
             const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality().equals(other.index, index) &&
-            const DeepCollectionEquality().equals(other._items, _items));
+            const DeepCollectionEquality().equals(other._items, _items) &&
+            const DeepCollectionEquality().equals(other.iconUrl, iconUrl));
   }
 
   @JsonKey(ignore: true)
@@ -159,7 +175,8 @@ class _$_SkillsResponse extends _SkillsResponse {
       runtimeType,
       const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(index),
-      const DeepCollectionEquality().hash(_items));
+      const DeepCollectionEquality().hash(_items),
+      const DeepCollectionEquality().hash(iconUrl));
 
   @JsonKey(ignore: true)
   @override
@@ -176,7 +193,8 @@ abstract class _SkillsResponse extends SkillsResponse {
   const factory _SkillsResponse(
       {required final String title,
       required final num index,
-      required final List<String> items}) = _$_SkillsResponse;
+      required final List<String> items,
+      required final String iconUrl}) = _$_SkillsResponse;
   const _SkillsResponse._() : super._();
 
   factory _SkillsResponse.fromJson(Map<String, dynamic> json) =
@@ -188,6 +206,8 @@ abstract class _SkillsResponse extends SkillsResponse {
   num get index => throw _privateConstructorUsedError;
   @override
   List<String> get items => throw _privateConstructorUsedError;
+  @override
+  String get iconUrl => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_SkillsResponseCopyWith<_$_SkillsResponse> get copyWith =>

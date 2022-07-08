@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_two/data/models/projects/project_response.dart';
-import 'package:portfolio_two/domain/models/projects/project.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:portfolio_two/presentation/features/home/cubit/home_cubit.dart';
 import 'package:portfolio_two/presentation/features/projects/widgets/project_card.dart';
 import 'package:portfolio_two/presentation/widgets/app_text.dart';
 import 'package:portfolio_two/presentation/widgets/layout_widget.dart';
-import 'package:portfolio_two/resources/assets/custom_images.dart';
 import 'package:portfolio_two/resources/colors/colors.dart';
 
 class ProjectsPage extends StatelessWidget {
@@ -22,52 +21,7 @@ class ProjectsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-
-    final projects = <ProjectCard>[
-      const ProjectCard(
-        project: Project(
-          imageUrl: CustomImages.marineWatch,
-          description: 'An application to track marine sightings',
-          status: ProjectStatus.completed,
-          url: 'https://github.com/aumb/marine_watch',
-        ),
-      ),
-      const ProjectCard(
-        project: Project(
-          imageUrl: CustomImages.rickAndMorty,
-          description:
-              'An application that explores the rick and morty universe',
-          status: ProjectStatus.completed,
-          url: 'https://github.com/aumb/rick-and-morty-verse',
-        ),
-      ),
-      const ProjectCard(
-        project: Project(
-          imageUrl: CustomImages.masonTemplates,
-          description:
-              'Some templates made for resuing inside a flutter project',
-          status: ProjectStatus.completed,
-          url: 'https://github.com/aumb/mason_templates',
-        ),
-      ),
-      const ProjectCard(
-        project: Project(
-          imageUrl: CustomImages.topStories,
-          description:
-              'An application to get the latest top stories from the NYTimes',
-          status: ProjectStatus.completed,
-          url: 'https://github.com/aumb/top-stories',
-        ),
-      ),
-      const ProjectCard(
-        project: Project(
-          imageUrl: CustomImages.illustraion,
-          description: 'The web app you are using to view my work',
-          status: ProjectStatus.completed,
-          url: 'https://github.com/aumb/portfolio_two',
-        ),
-      ),
-    ];
+    final projects = context.watch<HomeCubit>().state.projects;
 
     return LayoutWidget(
       key: const ValueKey('projectsPageLayoutWidget'),
@@ -94,7 +48,9 @@ class ProjectsView extends StatelessWidget {
                     runSpacing: 24,
                     children: projects
                         .map(
-                          (e) => e,
+                          (e) => ProjectCard(
+                            project: e,
+                          ),
                         )
                         .toList(),
                   ),

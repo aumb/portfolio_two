@@ -11,6 +11,7 @@ _$_SkillsResponse _$$_SkillsResponseFromJson(Map<String, dynamic> json) =>
       title: json['title'] as String,
       index: json['index'] as num,
       items: (json['items'] as List<dynamic>).map((e) => e as String).toList(),
+      iconUrl: json['iconUrl'] as String,
     );
 
 Map<String, dynamic> _$$_SkillsResponseToJson(_$_SkillsResponse instance) =>
@@ -18,4 +19,5 @@ Map<String, dynamic> _$$_SkillsResponseToJson(_$_SkillsResponse instance) =>
       'title': instance.title,
       'index': instance.index,
       'items': instance.items,
+      'iconUrl': instance.iconUrl,
     };

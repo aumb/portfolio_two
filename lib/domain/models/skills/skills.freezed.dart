@@ -19,6 +19,7 @@ mixin _$Skills {
   String get title => throw _privateConstructorUsedError;
   num get index => throw _privateConstructorUsedError;
   List<String> get items => throw _privateConstructorUsedError;
+  String get iconUrl => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SkillsCopyWith<Skills> get copyWith => throw _privateConstructorUsedError;
@@ -28,7 +29,7 @@ mixin _$Skills {
 abstract class $SkillsCopyWith<$Res> {
   factory $SkillsCopyWith(Skills value, $Res Function(Skills) then) =
       _$SkillsCopyWithImpl<$Res>;
-  $Res call({String title, num index, List<String> items});
+  $Res call({String title, num index, List<String> items, String iconUrl});
 }
 
 /// @nodoc
@@ -44,6 +45,7 @@ class _$SkillsCopyWithImpl<$Res> implements $SkillsCopyWith<$Res> {
     Object? title = freezed,
     Object? index = freezed,
     Object? items = freezed,
+    Object? iconUrl = freezed,
   }) {
     return _then(_value.copyWith(
       title: title == freezed
@@ -58,6 +60,10 @@ class _$SkillsCopyWithImpl<$Res> implements $SkillsCopyWith<$Res> {
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      iconUrl: iconUrl == freezed
+          ? _value.iconUrl
+          : iconUrl // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -67,7 +73,7 @@ abstract class _$$_SkillsCopyWith<$Res> implements $SkillsCopyWith<$Res> {
   factory _$$_SkillsCopyWith(_$_Skills value, $Res Function(_$_Skills) then) =
       __$$_SkillsCopyWithImpl<$Res>;
   @override
-  $Res call({String title, num index, List<String> items});
+  $Res call({String title, num index, List<String> items, String iconUrl});
 }
 
 /// @nodoc
@@ -84,6 +90,7 @@ class __$$_SkillsCopyWithImpl<$Res> extends _$SkillsCopyWithImpl<$Res>
     Object? title = freezed,
     Object? index = freezed,
     Object? items = freezed,
+    Object? iconUrl = freezed,
   }) {
     return _then(_$_Skills(
       title: title == freezed
@@ -98,6 +105,10 @@ class __$$_SkillsCopyWithImpl<$Res> extends _$SkillsCopyWithImpl<$Res>
           ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      iconUrl: iconUrl == freezed
+          ? _value.iconUrl
+          : iconUrl // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -108,7 +119,8 @@ class _$_Skills extends _Skills {
   const _$_Skills(
       {required this.title,
       required this.index,
-      required final List<String> items})
+      required final List<String> items,
+      required this.iconUrl})
       : _items = items,
         super._();
 
@@ -124,8 +136,11 @@ class _$_Skills extends _Skills {
   }
 
   @override
+  final String iconUrl;
+
+  @override
   String toString() {
-    return 'Skills(title: $title, index: $index, items: $items)';
+    return 'Skills(title: $title, index: $index, items: $items, iconUrl: $iconUrl)';
   }
 
   @override
@@ -135,7 +150,8 @@ class _$_Skills extends _Skills {
             other is _$_Skills &&
             const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality().equals(other.index, index) &&
-            const DeepCollectionEquality().equals(other._items, _items));
+            const DeepCollectionEquality().equals(other._items, _items) &&
+            const DeepCollectionEquality().equals(other.iconUrl, iconUrl));
   }
 
   @override
@@ -143,7 +159,8 @@ class _$_Skills extends _Skills {
       runtimeType,
       const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(index),
-      const DeepCollectionEquality().hash(_items));
+      const DeepCollectionEquality().hash(_items),
+      const DeepCollectionEquality().hash(iconUrl));
 
   @JsonKey(ignore: true)
   @override
@@ -155,7 +172,8 @@ abstract class _Skills extends Skills {
   const factory _Skills(
       {required final String title,
       required final num index,
-      required final List<String> items}) = _$_Skills;
+      required final List<String> items,
+      required final String iconUrl}) = _$_Skills;
   const _Skills._() : super._();
 
   @override
@@ -164,6 +182,8 @@ abstract class _Skills extends Skills {
   num get index => throw _privateConstructorUsedError;
   @override
   List<String> get items => throw _privateConstructorUsedError;
+  @override
+  String get iconUrl => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_SkillsCopyWith<_$_Skills> get copyWith =>

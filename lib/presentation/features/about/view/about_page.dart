@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:portfolio_two/presentation/features/home/cubit/home_cubit.dart';
 import 'package:portfolio_two/presentation/widgets/app_text.dart';
 import 'package:portfolio_two/presentation/widgets/layout_widget.dart';
 import 'package:portfolio_two/resources/colors/colors.dart';
@@ -20,6 +22,7 @@ class AboutView extends StatelessWidget {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
+    final about = context.watch<HomeCubit>().state.about;
 
     return LayoutWidget(
       key: const ValueKey('aboutPageLayoutWidget'),
@@ -30,19 +33,17 @@ class AboutView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           AppText.headline4(
-            "Hi, I'm Mathiew. Nice to meet you.",
+            about.title,
             key: const ValueKey('aboutPageTitle'),
             textAlign: TextAlign.center,
             color: context.colors.labelSecondary.withOpacity(.7),
           ),
           const SizedBox(height: 24),
           AppText.headline5(
-            'Since beginning my journey as a software developer around '
-            '${AppConstants.yearsOfWork} years ago, I have done remote work '
-            'for companies, consulted for startups, and collaborated with '
-            'talented people to create digital products for both business '
-            'and consumer use. I am very out-going, curious by nature, and '
-            'a problem solver.',
+            about.description.replaceFirst(
+              '{VALUE}',
+              AppConstants.yearsOfWork,
+            ),
             key: const ValueKey('aboutPageSubtitle'),
             textAlign: TextAlign.center,
             color: context.colors.labelSecondary.withOpacity(.7),

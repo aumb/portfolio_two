@@ -20,7 +20,7 @@ class Work with _$Work {
   factory Work.mock() => Work(
         companyName: 'companyName',
         description: 'description',
-        imageUrl: 'imageUrl',
+        imageUrl: 'http://www.google.com',
         title: 'title',
         location: 'location',
         startDate: DateTime(1995),

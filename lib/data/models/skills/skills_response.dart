@@ -9,6 +9,7 @@ class SkillsResponse with _$SkillsResponse {
     required String title,
     required num index,
     required List<String> items,
+    required String iconUrl,
   }) = _SkillsResponse;
 
   @visibleForTesting
@@ -20,6 +21,7 @@ class SkillsResponse with _$SkillsResponse {
           'item2',
           'item3',
         ],
+        iconUrl: 'iconUrl',
       );
 
   const SkillsResponse._();
