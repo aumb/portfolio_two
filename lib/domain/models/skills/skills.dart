@@ -21,7 +21,7 @@ class Skills with _$Skills {
           'item2',
           'item3',
         ],
-        iconUrl: 'iconUrl',
+        iconUrl: 'https://www.google.com',
       );
 
   const Skills._();

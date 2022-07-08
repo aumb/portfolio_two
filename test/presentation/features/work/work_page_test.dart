@@ -7,25 +7,47 @@
 
 import 'dart:io';
 
+import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
+import 'package:mocktail/mocktail.dart';
+import 'package:portfolio_two/domain/models/work/work.dart';
+import 'package:portfolio_two/presentation/features/home/cubit/home_cubit.dart';
 import 'package:portfolio_two/presentation/features/work/work.dart';
 import 'package:portfolio_two/resources/dependecy_manager/dependecy_manager.dart';
 
 import '../../../helpers/helpers.dart';
 
+class MockHomeCubit extends MockCubit<HomeState> implements HomeCubit {}
+
 void main() {
+  late MockHomeCubit cubit;
+
+  final _tWork = [
+    Work.mock(),
+    Work.mock(),
+  ];
+
   setUp(() async {
     await DependecyManager.inject(fromTest: true);
+    cubit = MockHomeCubit();
+    when(() => cubit.state).thenReturn(
+      HomeState.initial().copyWith(
+        work: _tWork,
+        status: const HomeStatus.loaded(),
+      ),
+    );
+    when(() => cubit.init()).thenAnswer((_) async {});
   });
 
   tearDown(() {
+    cubit.close();
     GetIt.instance.reset();
   });
 
   Future<void> _setup(WidgetTester tester) async {
-    await tester.pumpApp();
+    await tester.pumpApp(homeCubit: cubit);
     await tester.pumpAndSettle();
     await tester.scrollUntilVisible(
       find.byType(WorkPage),
@@ -53,12 +75,12 @@ void main() {
       );
     });
 
-    testWidgets('renders 3 WorkCards', (tester) async {
+    testWidgets('renders list length of WorkCards', (tester) async {
       await _setup(tester);
 
       expect(
         find.byType(WorkCard),
-        findsNWidgets(4),
+        findsNWidgets(_tWork.length),
       );
     });
   });
