@@ -8,6 +8,7 @@ import 'package:portfolio_two/domain/models/projects/project.dart';
 import 'package:portfolio_two/domain/models/skills/skills.dart';
 import 'package:portfolio_two/domain/models/work/work.dart';
 import 'package:portfolio_two/domain/use_cases/about/get_about_use_case.dart';
+import 'package:portfolio_two/domain/use_cases/authentication/sign_in_anonymously_use_case.dart';
 import 'package:portfolio_two/domain/use_cases/contact/get_contact_information_use_case.dart';
 import 'package:portfolio_two/domain/use_cases/introduction/get_introduction_use_case.dart';
 import 'package:portfolio_two/domain/use_cases/projects/get_projects_use_case.dart';
@@ -26,6 +27,9 @@ class MockGetProjectsUseCase extends Mock implements GetProjectsUseCase {}
 
 class MockGetWorkUseCase extends Mock implements GetWorkUseCase {}
 
+class MockSignInAnonymouslyUseCase extends Mock
+    implements SignInAnonymouslyUseCase {}
+
 class MockGetContactInformationUseCase extends Mock
     implements GetContactInformationUseCase {}
 
@@ -36,6 +40,7 @@ void main() {
   late MockGetProjectsUseCase mockGetProjectsUseCase;
   late MockGetWorkUseCase mockGetWorkUseCase;
   late MockGetContactInformationUseCase mockGetContactInformationUseCase;
+  late MockSignInAnonymouslyUseCase mockSignInAnonymouslyUseCase;
 
   final _tIntroduction = Introduction.mock();
   final _tAbout = About.mock();
@@ -52,7 +57,11 @@ void main() {
     mockGetProjectsUseCase = MockGetProjectsUseCase();
     mockGetWorkUseCase = MockGetWorkUseCase();
     mockGetContactInformationUseCase = MockGetContactInformationUseCase();
+    mockSignInAnonymouslyUseCase = MockSignInAnonymouslyUseCase();
 
+    when(() => mockSignInAnonymouslyUseCase.run()).thenAnswer(
+      (_) async {},
+    );
     when(() => mockGetIntroductionUseCase.run()).thenAnswer(
       (_) async => _tIntroduction,
     );
@@ -80,6 +89,7 @@ void main() {
         mockGetWorkUseCase,
         mockGetProjectsUseCase,
         mockGetContactInformationUseCase,
+        mockSignInAnonymouslyUseCase,
       );
 
   group('HomeCubit', () {
@@ -115,9 +125,29 @@ void main() {
     );
 
     blocTest<HomeCubit, HomeState>(
-      'emits [loading, error] when an error occurs with one of the calls',
+      'emits [loading, error] when an error occurs with one of the .wait calls',
       build: () {
         when(() => mockGetIntroductionUseCase.run()).thenAnswer(
+          (_) async => throw _tException,
+        );
+
+        return cubit();
+      },
+      act: (cubit) => cubit.init(),
+      expect: () => [
+        HomeState.initial().copyWith(
+          status: const HomeStatus.loading(),
+        ),
+        HomeState.initial().copyWith(
+          status: HomeStatus.error(_tException),
+        )
+      ],
+    );
+
+    blocTest<HomeCubit, HomeState>(
+      'emits [loading, error] when signInAnonymously fails',
+      build: () {
+        when(() => mockSignInAnonymouslyUseCase.run()).thenAnswer(
           (_) async => throw _tException,
         );
 
